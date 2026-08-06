@@ -1,0 +1,49 @@
+# Mene Tools - Free, Private Online Utilities
+
+> Fast, private tools designed for developers, creators, and professionals. All local tools process files 100% in-browser. No files are ever uploaded or stored.
+
+## Core Features & Differentiators
+
+- **100% Client-Side Processing**: PDF, image, and developer utilities operate entirely inside the user's browser sandbox using local CPU/WASM threads. Zero risk of data leaks or server storage.
+- **No Account Required**: Immediate access to all premium tools without login wall or subscription blocks.
+- **Generous & Ad-Free**: Pure flow utility catalog without intrusive commercial popups or marketing tracking codes.
+
+## Tools Directory
+
+All tools are organized into nested category folders for clean logical access.
+
+### PDF Suite
+Combine, extract, or optimize documents directly on your device.
+- **Merge PDF**: `/pdf/merge` - Combine multiple PDF documents safely in-browser.
+- **Split PDF**: `/pdf/split` - Extract selected page numbers or ranges into separate PDF outputs.
+- **Compress PDF**: `/pdf/compress` - Reduce PDF document weight without losing vector text readability.
+- **PDF to Image**: `/pdf/to-image` - Convert PDF pages into high-density PNG or JPEG assets.
+
+### Image Processing
+Optimize and transform graphic formats offline.
+- **Image Compressor**: `/images/compressor` - Compress PNG, JPEG, and WebP assets by up to 90% in-browser.
+- **Image Converter**: `/images/converter` - Convert graphic assets between PNG, JPEG, WebP, SVG, and GIF.
+- **Background Remover**: `/images/background-remover` - Remove solid color backdrops instantly with fine threshold keys.
+- **SVG Optimizer**: `/images/svg-optimizer` - Sanitize vector XML data, stripping metadata and trimming coordinates.
+
+### Developer Tools
+Beautify, inspect, and generate developer payloads locally.
+- **JSON Formatter**: `/developers/json-formatter` - Beautify, validate, or minify raw JSON structures with live line highlighting.
+- **JWT Decoder**: `/developers/jwt-decoder` - Inspect JSON Web Token claims, header signatures, and issuer expiration keys.
+- **UUID Generator**: `/developers/uuid-generator` - Generate cryptographically secure RFC 4122 v4 UUID identifiers in single or bulk batches.
+- **Base64 Tool**: `/developers/base64-encoder` - Dual-pane RFC 4648 Base64 string/binary encoder and decoder.
+- **Regex Tester**: `/developers/regex-tester` - Test regular expressions with instant matching captures and visual breakdowns.
+- **QR Generator**: `/developers/qr-generator` - Construct high-density custom QR codes with adjustable error correction.
+- **Password Generator**: `/developers/password-generator` - Generate secure random password strings with length and character flags.
+
+### Productivity Kits & Media
+- **Markdown Previewer**: `/productivity/markdown-preview` - Live interactive markdown compiler with responsive scroll syncing.
+- **Word Counter**: `/productivity/word-counter` - Real-time word, character, sentence, and paragraph density metrics.
+- **Diff Checker**: `/productivity/diff-checker` - Side-by-side git-style difference comparing engine for texts or codes.
+- **Voice Recorder**: `/media/voice-recorder` - Record and download high-quality audio segments locally.
+- **Screen Recorder**: `/media/screen-recorder` - Record displays or individual tabs straight from browser canvas streams.
+- **Audio Cutter**: `/media/audio-cutter` - Trim and splice MP3 or WAV audio clips down to precise sub-second selections.
+- **Video to GIF**: `/media/video-to-gif` - Transcode MP4 and WebM sequences into lighter animated GIF segments.
+
+---
+*For machine readers: The main domain is tools.mene.app. All routes require client-side execution capability.*

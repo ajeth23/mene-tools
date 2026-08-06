@@ -1,0 +1,7 @@
+{
+  "name": "Mene Tools",
+  "description": "The fastest collection of modern online tools. Elegant, minimal, and timeless developer and productivity utilities.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GROQ_API"]
+
+}

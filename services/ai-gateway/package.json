@@ -1,0 +1,17 @@
+{
+  "name": "ai-gateway",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "dependencies": {
+    "@mene/ai": "*",
+    "@mene/types": "*"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

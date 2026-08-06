@@ -1,0 +1,17 @@
+name = "mene-tools"
+main = "src/index.ts"
+compatibility_date = "2024-04-03"
+
+[vars]
+DEFAULT_MODEL = "llama-3.3-70b-versatile"
+
+[observability]
+enabled = true
+
+# KV Namespace for Server-side IP rate limiting
+# Create your KV namespace using: npx wrangler kv namespace create LIMITER_KV
+# Then replace the `id` below with your generated namespace ID.
+[[kv_namespaces]]
+binding = "LIMITER_KV"
+id = "fac9274c979a4b0389821ae437820528"
+
