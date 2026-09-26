@@ -45,7 +45,7 @@ export default function PrivacyPage() {
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
                 Mene Tools is designed from the ground up as a client-side execution utility suite. 
                 **We do not collect, transmit, upload, or store any files, documents, text inputs, or images that you process on our website.** 
-                All parsing, merging, splitting, converting, compressing, and text generation operations occur locally inside your browser thread. 
+                All parsing, merging, splitting, converting, and compressing operations occur locally inside your browser thread. 
                 Once you close the browser tab, all session caches are immediately cleared.
               </p>
             </section>
@@ -62,11 +62,11 @@ export default function PrivacyPage() {
 
             <section className="border-l-2 border-zinc-200 dark:border-zinc-800 pl-6 space-y-3">
               <h2 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider">
-                3. Third-Party API Services
+                3. Zero Third-Party API Transmissions
               </h2>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
-                For our AI utilities (such as the AI Summarizer and AI Text Generator), text prompts are securely routed through our serverless AI Gateway to Groq APIs. 
-                These requests do not contain any file metadata, and no logging or retention policies are applied to your text input data.
+                All utilities execute strictly within your local browser sandbox. We do not transmit your documents, 
+                media files, or text data to any external APIs, servers, or cloud analytics services.
               </p>
             </section>
 

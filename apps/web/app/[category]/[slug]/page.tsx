@@ -27,10 +27,6 @@ export async function generateStaticParams() {
       if (tool.slug === "image-compressor") shortSlug = "compressor";
       else if (tool.slug === "image-converter") shortSlug = "converter";
       else if (tool.slug === "svg-optimizer") shortSlug = "svg-optimizer";
-    } else if (categoryLower === "ai") {
-      if (tool.slug === "ai-text-generator") shortSlug = "text-generator";
-      else if (tool.slug === "ai-summarizer") shortSlug = "summarizer";
-      else if (tool.slug === "ai-prompt-generator") shortSlug = "prompt-generator";
     }
 
     // Push canonical slug
@@ -111,7 +107,7 @@ export default async function ToolSubPage({ params }: PageProps) {
     "name": tool.seoTitle || tool.name,
     "description": tool.seoDesc || tool.description,
     "operatingSystem": "All",
-    "applicationCategory": tool.category === "AI" ? "EducationalApplication" : "DeveloperApplication",
+    "applicationCategory": "DeveloperApplication",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",

@@ -30,11 +30,6 @@ export default function Footer() {
               </h3>
               <ul className="space-y-3.5 text-sm font-medium">
                 <li>
-                  <Link href="/#category-AI" className="text-zinc-600 dark:text-zinc-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                    AI Utilities
-                  </Link>
-                </li>
-                <li>
                   <Link href="/#category-PDF" className="text-zinc-600 dark:text-zinc-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                     PDF Suite
                   </Link>
@@ -42,6 +37,11 @@ export default function Footer() {
                 <li>
                   <Link href="/#category-Images" className="text-zinc-600 dark:text-zinc-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
                     Image Processing
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/#category-Media" className="text-zinc-600 dark:text-zinc-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                    Media & Audio
                   </Link>
                 </li>
               </ul>
@@ -64,8 +64,8 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#category-Media" className="text-zinc-600 dark:text-zinc-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
-                    Media & Audio
+                  <Link href="/privacy" className="text-zinc-600 dark:text-zinc-400 hover:text-amber-500 dark:hover:text-amber-400 transition-colors">
+                    Privacy Sandbox
                   </Link>
                 </li>
               </ul>

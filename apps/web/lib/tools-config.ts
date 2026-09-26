@@ -7,7 +7,7 @@ export interface ToolMetadata {
   id: string;
   name: string;
   slug: string;
-  category: "AI" | "PDF" | "Images" | "Developers" | "Productivity" | "Media";
+  category: "PDF" | "Images" | "Developers" | "Productivity" | "Media";
   description: string;
   seoTitle: string;
   seoDesc: string;
@@ -20,104 +20,6 @@ export interface ToolMetadata {
 }
 
 export const TOOLS_LIST: ToolMetadata[] = [
-  // --- AI ---
-  {
-    id: "ai-text-generator",
-    name: "AI Text Generator",
-    slug: "ai-text-generator",
-    category: "AI",
-    description: "Create premium professional copy, essays, articles, and communications instantly with Groq.",
-    seoTitle: "Free AI Text Generator - Write Articles & Copy Instantly | Mene",
-    seoDesc: "Create high-quality copy, blog posts, essays, and creative outlines instantly. Power your workflow with cutting-edge Groq AI text generation.",
-    iconName: "Sparkles",
-    usageCount: "128.4K",
-    benefits: [
-      "Generates human-like, engaging copy tailored to any audience",
-      "Saves hours of brainstorming, drafting, and proofreading",
-      "Provides standard markdown format perfect for direct publishing"
-    ],
-    howItWorks: [
-      "Select your target topic, content format, tone, and desired length.",
-      "Click Generate and watch Groq formulate structured, high-quality markdown.",
-      "Review, refine, and easily copy the clean prose to your clipboard."
-    ],
-    faqs: [
-      {
-        question: "Is the generated content unique and original?",
-        answer: "Yes, the content is synthesized in real-time by the high-speed Llama model via Groq, ensuring highly original, creative, and contextually rich results."
-      },
-      {
-        question: "Can I use the generated copy for commercial purposes?",
-        answer: "Absolutely. Any copy generated using Mene Tools is fully yours to use for commercial, personal, or educational writing."
-      }
-    ],
-    relatedSlugs: ["ai-summarizer", "ai-prompt-generator", "markdown-preview"]
-  },
-  {
-    id: "ai-summarizer",
-    name: "AI Summarizer",
-    slug: "ai-summarizer",
-    category: "AI",
-    description: "Condense long articles, reports, or legal documents into beautiful, actionable takeaways.",
-    seoTitle: "Free AI Text Summarizer - Condense Documents Instantly | Mene",
-    seoDesc: "Condense long text, legal agreements, research articles, or transcripts into highly clear bullet points or structural summaries using Groq.",
-    iconName: "FileText",
-    usageCount: "94.2K",
-    benefits: [
-      "Extracts core concepts and takeaways in under 5 seconds",
-      "Avoids information overload with clean visual bullet points",
-      "Accepts large copy-paste payloads with no complex setup"
-    ],
-    howItWorks: [
-      "Paste the raw text of your article, agreement, or transcript into the input pane.",
-      "Specify your target style (bullet points or executive paragraph) and target length.",
-      "Get a perfectly formatted markdown summary ready for direct integration."
-    ],
-    faqs: [
-      {
-        question: "Is there a limit on the text length I can paste?",
-        answer: "The underlying Llama model on Groq supports extremely large contexts, so feel free to summarize full chapters or reports!"
-      },
-      {
-        question: "Does it keep the technical details intact?",
-        answer: "Yes, our prompt architecture instructs the model to preserve all names, figures, and key technical details while condensing formatting."
-      }
-    ],
-    relatedSlugs: ["ai-text-generator", "markdown-preview", "json-formatter"]
-  },
-  {
-    id: "ai-prompt-generator",
-    name: "AI Prompt Generator",
-    slug: "ai-prompt-generator",
-    category: "AI",
-    description: "Refine raw ideas into enterprise-grade, role-based master prompts for Groq, Llama, and ChatGPT.",
-    seoTitle: "Free AI Prompt Generator - Master Prompt Engineering | Mene",
-    seoDesc: "Convert basic ideas into professional, context-rich master prompts. Get the absolute best answers out of Llama and other LLMs.",
-    iconName: "BrainCircuit",
-    usageCount: "76.1K",
-    benefits: [
-      "Improves response quality from AI models by up to 10x",
-      "Includes structured role definitions, context, and clear limits",
-      "Applies prompt-engineering best practices automatically"
-    ],
-    howItWorks: [
-      "Enter your basic draft idea or prompt goal (e.g., 'help me plan a trip to Kyoto').",
-      "Select a category and target LLM model.",
-      "Click Generate to receive a complete, copyable master prompt formatted with clear sections."
-    ],
-    faqs: [
-      {
-        question: "What makes a good master prompt?",
-        answer: "A good prompt specifies a clear role, detailed background context, step-by-step instructions, negative constraints, and output format requirements."
-      },
-      {
-        question: "Does this work for Midjourney or Stable Diffusion too?",
-        answer: "Yes, you can write prompt ideas for image models and select corresponding categories to get optimized prompts."
-      }
-    ],
-    relatedSlugs: ["ai-text-generator", "ai-summarizer", "markdown-preview"]
-  },
-
   // --- PDF ---
   {
     id: "merge-pdf",
@@ -635,7 +537,7 @@ export const TOOLS_LIST: ToolMetadata[] = [
         answer: "Yes, standard embedded HTML tags will pass through safely to give you maximum layout control."
       }
     ],
-    relatedSlugs: ["ai-text-generator", "ai-summarizer", "json-formatter"]
+    relatedSlugs: ["word-counter", "diff-checker", "json-formatter"]
   },
   {
     id: "word-counter",
@@ -845,10 +747,6 @@ export function getToolPath(category: string, slug: string): string {
     if (s === "image-compressor") s = "compressor";
     else if (s === "image-converter") s = "converter";
     else if (s === "svg-optimizer") s = "svg-optimizer";
-  } else if (cat === "ai") {
-    if (s === "ai-text-generator") s = "text-generator";
-    else if (s === "ai-summarizer") s = "summarizer";
-    else if (s === "ai-prompt-generator") s = "prompt-generator";
   }
   return `/${cat}/${s}`;
 }
@@ -883,10 +781,6 @@ export function findToolByCategoryAndSlug(categoryParam: string, slugParam: stri
     if (cleanCategory === "images" && cleanSlug === "compressor" && t.slug === "image-compressor") return true;
     if (cleanCategory === "images" && cleanSlug === "converter" && t.slug === "image-converter") return true;
     if (cleanCategory === "images" && cleanSlug === "svg-optimizer" && t.slug === "svg-optimizer") return true;
-
-    if (cleanCategory === "ai" && cleanSlug === "text-generator" && t.slug === "ai-text-generator") return true;
-    if (cleanCategory === "ai" && cleanSlug === "summarizer" && t.slug === "ai-summarizer") return true;
-    if (cleanCategory === "ai" && cleanSlug === "prompt-generator" && t.slug === "ai-prompt-generator") return true;
 
     return false;
   });

@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
     ],
   },
   output: 'export',
-  transpilePackages: ['motion', '@mene/ui', '@mene/types', '@mene/ai'],
+  transpilePackages: ['motion', '@mene/ui', '@mene/types'],
   webpack: (config, {dev}) => {
     // Optional DISABLE_HMR flag for local development environment configuration.
 

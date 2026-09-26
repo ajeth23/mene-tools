@@ -7,7 +7,7 @@ export interface ToolMetadata {
   id: string;
   name: string;
   slug: string;
-  category: "AI" | "PDF" | "Images" | "Developers" | "Productivity" | "Media";
+  category: "PDF" | "Images" | "Developers" | "Productivity" | "Media";
   description: string;
   seoTitle: string;
   seoDesc: string;
@@ -17,15 +17,4 @@ export interface ToolMetadata {
   howItWorks: string[];
   faqs: FAQItem[];
   relatedSlugs: string[];
-}
-
-export interface AIServiceConfig {
-  apiKey: string;
-  modelName: string;
-}
-
-export interface GatewayResponse {
-  success: boolean;
-  result: string;
-  error?: string;
 }

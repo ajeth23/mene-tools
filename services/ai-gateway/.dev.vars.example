@@ -1,7 +1,0 @@
-# Cloudflare Worker Local Environment Secrets
-# Copy to `services/ai-gateway/.dev.vars` for local `wrangler dev` testing
-
-GROQ_API_KEY="YOUR_GROQ_API_KEY_HERE"
-
-# Optional: Restrict CORS origins (defaults to '*' if omitted)
-# ALLOWED_ORIGIN="https://tools.mene.app"

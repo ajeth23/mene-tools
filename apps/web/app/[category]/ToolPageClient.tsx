@@ -28,9 +28,6 @@ const LoadingTool = () => (
 );
 
 // Dynamic lazy loading of all fully built modules to optimize bundle size and speed
-const AITextGenerator = dynamic(() => import("@/components/tools/AITextGenerator"), { ssr: false, loading: LoadingTool });
-const AISummarizer = dynamic(() => import("@/components/tools/AISummarizer"), { ssr: false, loading: LoadingTool });
-const AIPromptGenerator = dynamic(() => import("@/components/tools/AIPromptGenerator"), { ssr: false, loading: LoadingTool });
 const MergePDF = dynamic(() => import("@/components/tools/MergePDF"), { ssr: false, loading: LoadingTool });
 const SplitPDF = dynamic(() => import("@/components/tools/SplitPDF"), { ssr: false, loading: LoadingTool });
 const CompressPDF = dynamic(() => import("@/components/tools/CompressPDF"), { ssr: false, loading: LoadingTool });
@@ -137,12 +134,6 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
   // Render correct module conditionally matching the registry slug
   const renderToolComponent = () => {
     switch (tool.slug) {
-      case "ai-text-generator":
-        return <AITextGenerator />;
-      case "ai-summarizer":
-        return <AISummarizer />;
-      case "ai-prompt-generator":
-        return <AIPromptGenerator />;
       case "merge-pdf":
         return <MergePDF />;
       case "split-pdf":
@@ -240,31 +231,15 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
               </p>
               {/* Trust badges */}
               <div className="flex flex-wrap gap-2 pt-2">
-                {tool.category === "AI" ? (
-                  <>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-100/50 dark:border-indigo-900/30">
-                      FREE
-                    </span>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-50 dark:bg-zinc-900 text-slate-500 dark:text-zinc-400 border border-slate-200/40 dark:border-zinc-800/60">
-                      NO ACCOUNT REQUIRED
-                    </span>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100/50 dark:border-emerald-900/30">
-                      POWERED BY GROQ AI
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-100/50 dark:border-indigo-900/30">
-                      FREE
-                    </span>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100/50 dark:border-emerald-900/30">
-                      NO UPLOAD REQUIRED
-                    </span>
-                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-50 dark:bg-zinc-900 text-slate-500 dark:text-zinc-400 border border-slate-200/40 dark:border-zinc-800/60">
-                      NO ACCOUNT REQUIRED
-                    </span>
-                  </>
-                )}
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-100/50 dark:border-indigo-900/30">
+                  FREE
+                </span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100/50 dark:border-emerald-900/30">
+                  NO UPLOAD REQUIRED
+                </span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-50 dark:bg-zinc-900 text-slate-500 dark:text-zinc-400 border border-slate-200/40 dark:border-zinc-800/60">
+                  NO ACCOUNT REQUIRED
+                </span>
               </div>
             </div>
 

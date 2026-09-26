@@ -4,7 +4,7 @@
 
 **Engineering-First, Privacy-Focused, High-Performance Web Utility Suite**
 
-*100% Client-Side In-Browser Execution • Powered by Next.js 15 & Groq AI*
+*100% Client-Side In-Browser Execution • Powered by Next.js 15 & React 19*
 
 [![Next.js](https://img.shields.io/badge/Next.js-15.4-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.0-61DAFB?style=flat-square&logo=react)](https://react.dev/)
@@ -22,9 +22,9 @@
 
 ## 📌 Overview
 
-**Mene Tools** is a state-of-the-art monorepo suite of developer, media, PDF, and AI utilities. Designed for maximum speed, privacy, and visual elegance, **Mene Tools** processes files, images, and documents **100% locally in your browser memory sandbox**. No uploaded files are ever sent to or stored on backend servers or databases.
+**Mene Tools** is a state-of-the-art monorepo suite of developer, media, and PDF utilities. Designed for maximum speed, privacy, and visual elegance, **Mene Tools** processes files, images, and documents **100% locally in your browser memory sandbox**. No uploaded files are ever sent to or stored on backend servers or databases.
 
-Whether you're merging multi-gigabyte PDFs, compressing images with live before/after previews, generating QR codes, or synthesizing AI content via Groq, Mene Tools provides lightning-fast performance with zero latency and absolute confidentiality.
+Whether you're merging multi-gigabyte PDFs, compressing images with live before/after previews, generating QR codes, or transcoding media, Mene Tools provides lightning-fast performance with zero latency and absolute confidentiality.
 
 ---
 
@@ -35,11 +35,6 @@ Whether you're merging multi-gigabyte PDFs, compressing images with live before/
 - **Zero File Uploads**: Your sensitive documents, photos, and code snippets never leave your device.
 - **No Database Persistence**: No tracking databases, user accounts, or server-side document storage.
 
-### ✨ AI-Powered Utilities (Groq AI Gateway)
-- **AI Text Generator**: Formulate articles, blog posts, essays, and landing page copy instantly.
-- **AI Summarizer**: Condense lengthy reports, legal agreements, and transcripts into clear markdown bullet points.
-- **AI Master Prompt Generator**: Refine basic prompts into role-defined, context-rich master prompts for LLMs.
-
 ### 📄 Enterprise PDF Suite
 - **PDF to Image Converter**: Render PDF pages into high-resolution PNG/JPEG images with real-time thumbnail previews and single-click **Download All as ZIP**.
 - **Split PDF**: Visually preview pages, select custom page ranges, or check thumbnail grids with live dual-binding formula synchronization.
@@ -49,7 +44,7 @@ Whether you're merging multi-gigabyte PDFs, compressing images with live before/
 ### 🖼️ Advanced Image Processing
 - **Image Compressor**: Dual-column live side-by-side comparison dashboard (Original vs. Compressed) with real-time quality slider adjustments.
 - **Image Converter**: Transcode images between WebP, PNG, JPEG, and GIF formats.
-- **Background Remover**: AI-powered client-side background extraction (`@imgly/background-removal`).
+- **Background Remover**: Client-side background extraction (`@imgly/background-removal`).
 - **SVG Optimizer**: Minify and clean SVG code payloads locally.
 
 ### 🛠️ Developer & Media Toolkit
@@ -58,6 +53,7 @@ Whether you're merging multi-gigabyte PDFs, compressing images with live before/
 - **UUID & Base64 Tools**: Generate cryptographically secure UUID v4 strings and encode/decode Base64 buffers.
 - **Regex Tester & QR Generator**: Test complex regular expressions and generate high-entropy QR codes.
 - **Diff Checker & Word Counter**: Compare text deltas and analyze character/word reading metrics.
+- **Audio & Video Studio**: Trim audio clips, record screen & microphone streams, and extract video frames to GIFs entirely locally.
 
 ---
 
@@ -71,9 +67,8 @@ mene-tools/
 │       ├── components/        # UI components & standalone tool sandboxes
 │       │   ├── tools/         # Isolated tool implementations (PDFToImage, ImageCompressor, etc.)
 │       │   └── FeedbackWidget # Dynamic contextual feedback loop
-│       └── lib/               # Reusable PDF utilities (pdf-utils.ts), AI Gateway, tools config
-├── packages/                  # Shared monorepo packages (@mene/types, @mene/ui, @mene/ai)
-├── services/                  # Backend / edge services & infrastructure
+│       └── lib/               # Reusable PDF utilities (pdf-utils.ts), tools config
+├── packages/                  # Shared monorepo packages (@mene/types, @mene/ui)
 ├── infra/                     # Infrastructure & deployment manifests
 └── package.json               # Monorepo workspaces configuration
 ```
@@ -87,7 +82,6 @@ mene-tools/
 - **Icons & Typography**: [Lucide React](https://lucide.dev/), Inter / Geist / Font Display
 - **PDF & Processing**: `pdf.js` (Mozilla CDN worker), `pdf-lib`, `JSZip`
 - **Image Processing**: `@imgly/background-removal`, HTML5 Canvas 2D Context
-- **AI Provider**: Groq API Gateway (`Llama-3.3-70b-versatile` / `Google GenAI`)
 - **SEO & Schema**: JSON-LD `SoftwareApplication` Structured Data, OpenGraph, Dynamic Sitemaps
 
 ---
@@ -113,17 +107,7 @@ Ensure you have the following installed on your machine:
    npm install
    ```
 
-3. **Set Up Environment Variables**
-   Create a `.env.local` file inside `apps/web/`:
-   ```bash
-   cp .env.example apps/web/.env.local
-   ```
-   Add your API keys (optional for local AI testing):
-   ```env
-   GROQ_API_KEY=your_groq_api_key_here
-   ```
-
-4. **Run Development Server**
+3. **Run Development Server**
    ```bash
    npm run dev
    ```

@@ -2,12 +2,10 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
 import {
   Sparkles,
   FileText,
-  BrainCircuit,
   Combine,
   Scissors,
   Minimize2,
@@ -33,7 +31,8 @@ import {
   TrendingUp,
   Cpu,
   Command,
-  Plus
+  Plus,
+  ChevronRight
 } from "lucide-react";
 import { TOOLS_LIST, ToolMetadata, getToolPath } from "@/lib/tools-config";
 import Header from "@/components/Header";
@@ -47,8 +46,6 @@ function getIconComponent(iconName: string, className = "w-5 h-5") {
       return <Sparkles className={className} />;
     case "FileText":
       return <FileText className={className} />;
-    case "BrainCircuit":
-      return <BrainCircuit className={className} />;
     case "Combine":
       return <Combine className={className} />;
     case "Scissors":
@@ -96,84 +93,59 @@ function getIconComponent(iconName: string, className = "w-5 h-5") {
 
 function getCategoryColorClasses(category: string) {
   switch (category) {
-    case "AI Utilities":
-      return {
-        bg: "bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-100/50 dark:border-indigo-900/30",
-        text: "text-indigo-600 dark:text-indigo-400",
-        hover: "group-hover:bg-indigo-600 dark:group-hover:bg-indigo-550 group-hover:text-white group-hover:border-transparent",
-        hoverTitle: "group-hover:text-indigo-600 dark:group-hover:text-indigo-400",
-        accent: "bg-indigo-500",
-        borderHover: "group-hover:border-indigo-500/30"
-      };
+    case "PDF":
     case "PDF Suite":
       return {
-        bg: "bg-blue-50 dark:bg-blue-950/30 border border-blue-100/50 dark:border-blue-900/30",
+        bg: "bg-blue-500/10 dark:bg-blue-500/15 border border-blue-500/20",
         text: "text-blue-600 dark:text-blue-400",
-        hover: "group-hover:bg-blue-600 dark:group-hover:bg-blue-550 group-hover:text-white group-hover:border-transparent",
-        hoverTitle: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
         accent: "bg-blue-500",
-        borderHover: "group-hover:border-blue-500/30"
+        hoverTitle: "group-hover:text-blue-600 dark:group-hover:text-blue-400"
       };
+    case "Images":
     case "Image Processing":
       return {
-        bg: "bg-pink-50 dark:bg-pink-950/30 border border-pink-100/50 dark:border-pink-900/30",
-        text: "text-pink-600 dark:text-pink-400",
-        hover: "group-hover:bg-pink-600 dark:group-hover:bg-pink-550 group-hover:text-white group-hover:border-transparent",
-        hoverTitle: "group-hover:text-pink-600 dark:group-hover:text-pink-400",
-        accent: "bg-pink-500",
-        borderHover: "group-hover:border-pink-500/30"
+        bg: "bg-teal-500/10 dark:bg-teal-500/15 border border-teal-500/20",
+        text: "text-teal-600 dark:text-teal-400",
+        accent: "bg-teal-500",
+        hoverTitle: "group-hover:text-teal-600 dark:group-hover:text-teal-400"
       };
+    case "Developers":
     case "Developer Tools":
       return {
-        bg: "bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100/50 dark:border-emerald-900/30",
-        text: "text-emerald-600 dark:text-emerald-450",
-        hover: "group-hover:bg-emerald-600 dark:group-hover:bg-emerald-550 group-hover:text-white group-hover:border-transparent",
-        hoverTitle: "group-hover:text-emerald-600 dark:group-hover:text-emerald-400",
+        bg: "bg-emerald-500/10 dark:bg-emerald-500/15 border border-emerald-500/20",
+        text: "text-emerald-600 dark:text-emerald-400",
         accent: "bg-emerald-500",
-        borderHover: "group-hover:border-emerald-500/30"
+        hoverTitle: "group-hover:text-emerald-600 dark:group-hover:text-emerald-400"
       };
+    case "Productivity":
     case "Productivity Kits":
       return {
-        bg: "bg-amber-50 dark:bg-amber-950/30 border border-amber-100/50 dark:border-amber-900/30",
+        bg: "bg-amber-500/10 dark:bg-amber-500/15 border border-amber-500/20",
         text: "text-amber-600 dark:text-amber-400",
-        hover: "group-hover:bg-amber-600 dark:group-hover:bg-amber-550 group-hover:text-white group-hover:border-transparent",
-        hoverTitle: "group-hover:text-amber-600 dark:group-hover:text-amber-400",
         accent: "bg-amber-500",
-        borderHover: "group-hover:border-amber-500/30"
+        hoverTitle: "group-hover:text-amber-600 dark:group-hover:text-amber-400"
       };
+    case "Media":
     case "Media & Audio":
       return {
-        bg: "bg-rose-50 dark:bg-rose-950/30 border border-rose-100/50 dark:border-rose-900/30",
-        text: "text-rose-600 dark:text-rose-400",
-        hover: "group-hover:bg-rose-600 dark:group-hover:bg-rose-550 group-hover:text-white group-hover:border-transparent",
-        hoverTitle: "group-hover:text-rose-600 dark:group-hover:text-rose-400",
-        accent: "bg-rose-500",
-        borderHover: "group-hover:border-rose-500/30"
+        bg: "bg-purple-500/10 dark:bg-purple-500/15 border border-purple-500/20",
+        text: "text-purple-600 dark:text-purple-400",
+        accent: "bg-purple-500",
+        hoverTitle: "group-hover:text-purple-600 dark:group-hover:text-purple-400"
       };
     default:
       return {
-        bg: "bg-slate-50 dark:bg-slate-900 border border-slate-100/50 dark:border-slate-800",
+        bg: "bg-slate-500/10 dark:bg-slate-500/15 border border-slate-500/20",
         text: "text-slate-600 dark:text-slate-400",
-        hover: "group-hover:bg-slate-600 dark:group-hover:bg-slate-500 group-hover:text-white group-hover:border-transparent",
-        hoverTitle: "group-hover:text-slate-600 dark:group-hover:text-slate-400",
         accent: "bg-slate-500",
-        borderHover: "group-hover:border-slate-500/30"
+        hoverTitle: "group-hover:text-slate-900 dark:group-hover:text-white"
       };
   }
 }
 
 export default function HomePage() {
-  const router = useRouter();
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<string>("All");
-  const [launchingTool, setLaunchingTool] = useState<{ name: string; path: string } | null>(null);
-
-  const handleLaunch = (name: string, path: string) => {
-    setLaunchingTool({ name, path });
-    setTimeout(() => {
-      router.push(path);
-    }, 300);
-  };
 
   const categories = useMemo(() => {
     const cats = new Set(TOOLS_LIST.map((t) => t.category));
@@ -210,7 +182,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FCFCFD] dark:bg-[#09090B] text-slate-900 dark:text-zinc-50 selection:bg-indigo-100 dark:selection:bg-white/10 flex flex-col justify-between">
+    <div className="min-h-screen bg-[#FCFCFD] dark:bg-[#0B1114] text-slate-900 dark:text-zinc-50 selection:bg-indigo-100 dark:selection:bg-white/10 flex flex-col justify-between">
       <div>
         <Header />
 
@@ -247,7 +219,7 @@ export default function HomePage() {
                 type="text"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search for PDF tools, AI generators, converters..."
+                placeholder="Search for PDF tools, image converters, developer utilities..."
                 className="flex-1 py-4 px-2 outline-none text-slate-700 dark:text-zinc-100 font-medium placeholder:text-slate-300 dark:placeholder-zinc-650 bg-transparent"
               />
               <div className="flex items-center gap-1 pr-3 select-none">
@@ -290,7 +262,7 @@ export default function HomePage() {
 
         {/* Dynamic Grid of Tools */}
         {filteredTools.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             <AnimatePresence mode="popLayout">
               {filteredTools.map((tool) => {
                 const colors = getCategoryColorClasses(tool.category);
@@ -302,101 +274,68 @@ export default function HomePage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.95 }}
                     transition={{ duration: 0.2 }}
-                    className={`relative bg-white dark:bg-zinc-950 border border-slate-200/75 dark:border-zinc-900/80 p-6 rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.01)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.035)] hover:-translate-y-1 hover:border-slate-300 dark:hover:border-zinc-850 transition-all duration-300 group flex flex-col justify-between overflow-hidden`}
+                    className="h-full"
                   >
-                    {/* 2026 Micro-Border Top Accent Bar */}
-                    <div className={`absolute top-0 left-0 right-0 h-[3.5px] opacity-25 group-hover:opacity-100 transition-opacity duration-300 ${colors.accent}`} />
+                    <Link
+                      href={getToolPath(tool.category, tool.slug)}
+                      className="relative group flex flex-col justify-between h-full bg-zinc-500/[0.02] dark:bg-white/[0.02] hover:bg-zinc-500/[0.05] dark:hover:bg-white/[0.05] backdrop-blur-md border border-zinc-200/60 dark:border-white/[0.06] hover:border-zinc-300/80 dark:hover:border-white/[0.14] p-6 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.01)] hover:shadow-[0_16px_36px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_16px_36px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer overflow-hidden"
+                    >
+                      {/* Subtle ambient hover glow in dark mode */}
+                      <div
+                        className={`absolute -right-8 -top-8 w-28 h-28 rounded-full blur-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none ${colors.accent}`}
+                      />
 
-                    <div className="space-y-4">
-                      {/* Tool Category & Run Metrics */}
-                      <div className="flex justify-between items-center">
-                        <div className="flex items-center gap-1.5">
-                          <span className={`w-1.5 h-1.5 rounded-full ${colors.accent} animate-pulse`} />
-                          <span className="text-[10px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest font-mono">
-                            {tool.category}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <div className="flex items-center gap-0.5 text-amber-500">
-                            <span className="text-xs">★</span>
-                            <span className="text-[9px] font-bold text-slate-500 dark:text-zinc-400 font-mono">4.9</span>
+                      <div className="space-y-4">
+                        {/* Top Header: Icon + Category + '● Local' Pill + Subtle Chevron */}
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-3">
+                            <div
+                              className={`w-10 h-10 rounded-xl flex items-center justify-center transition-transform duration-300 ${colors.bg} ${colors.text} group-hover:scale-105`}
+                            >
+                              {getIconComponent(tool.iconName, "w-5 h-5")}
+                            </div>
+                            <span className="text-[10px] font-mono font-medium uppercase tracking-widest text-zinc-400 dark:text-zinc-500">
+                              {tool.category}
+                            </span>
                           </div>
-                          <span className="text-[9px] font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest font-mono bg-slate-50 dark:bg-zinc-900/60 px-1.5 py-0.5 rounded">
-                            {tool.usageCount} Runs
-                          </span>
-                        </div>
-                      </div>
 
-                      {/* Tool Name, Icon, Description */}
-                      <div className="flex items-start gap-4">
-                        <div className={`relative w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 transition-all duration-300 ${colors.bg} ${colors.text} shadow-sm group-hover:shadow-md group-hover:scale-105 group-hover:rotate-3 overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-white/60 before:to-transparent before:opacity-0 group-hover:before:opacity-100 dark:before:from-white/10`}>
-                          <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${colors.accent}`} />
-                          <div className="relative z-10 group-hover:text-white transition-colors duration-300">
-                            {getIconComponent(tool.iconName, "w-6 h-6 stroke-[1.5]")}
+                          <div className="flex items-center gap-2">
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-medium bg-emerald-500/[0.08] text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                              <span>Local</span>
+                            </span>
+                            <ChevronRight className="w-4 h-4 text-zinc-300 dark:text-zinc-600 group-hover:text-zinc-600 dark:group-hover:text-zinc-200 group-hover:translate-x-0.5 transition-all duration-200" />
                           </div>
                         </div>
-                        <div className="space-y-1">
-                          <h3 className={`font-display font-bold text-base text-slate-900 dark:text-zinc-50 mb-1 transition-colors ${colors.hoverTitle}`}>
+
+                        {/* Main Content: Tool Title & Description */}
+                        <div className="space-y-1.5">
+                          <h3
+                            className={`font-display font-bold text-[17px] tracking-tight leading-snug text-zinc-900 dark:text-zinc-50 transition-colors duration-200 ${colors.hoverTitle}`}
+                          >
                             {tool.name}
                           </h3>
-                          <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed font-medium">
+                          <p className="text-[13px] text-zinc-500 dark:text-zinc-400 line-clamp-2 leading-relaxed font-normal tracking-normal">
                             {tool.description}
                           </p>
-                          {/* Trust Badges */}
-                          <div className="flex flex-wrap gap-1.5 pt-3">
-                            {tool.category === "AI" ? (
-                              <>
-                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] font-mono font-bold uppercase tracking-wider bg-slate-50 dark:bg-zinc-900 text-slate-450 dark:text-zinc-550 border border-slate-200/30 dark:border-zinc-800/30">
-                                  FREE
-                                </span>
-                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] font-mono font-bold uppercase tracking-wider bg-indigo-50/60 dark:bg-indigo-950/20 text-indigo-500/90 dark:text-indigo-400 border border-indigo-100/30 dark:border-indigo-900/10">
-                                  GROQ AI
-                                </span>
-                              </>
-                            ) : (
-                              <>
-                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] font-mono font-bold uppercase tracking-wider bg-slate-50 dark:bg-zinc-900 text-slate-450 dark:text-zinc-550 border border-slate-200/30 dark:border-zinc-800/30">
-                                  FREE
-                                </span>
-                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] font-mono font-bold uppercase tracking-wider bg-emerald-50/60 dark:bg-emerald-950/20 text-emerald-600/90 dark:text-emerald-400 border border-emerald-100/30 dark:border-emerald-900/10">
-                                  NO UPLOAD
-                                </span>
-                                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] font-mono font-bold uppercase tracking-wider bg-slate-50 dark:bg-zinc-900 text-slate-450 dark:text-zinc-550 border border-slate-200/30 dark:border-zinc-800/30">
-                                  NO SIGN-UP
-                                </span>
-                              </>
-                            )}
-                          </div>
                         </div>
                       </div>
-                    </div>
 
-                    {/* Launch button link */}
-                    <div className="border-t border-slate-100 dark:border-zinc-900/45 pt-4 mt-6 flex justify-between items-center">
-                      <span className="text-[9px] font-mono font-bold text-slate-400 dark:text-zinc-500 uppercase tracking-widest">
-                        SECURE CLIENT-SIDE
-                      </span>
-                      <Link
-                        href={getToolPath(tool.category, tool.slug)}
-                        prefetch={false}
-                        onClick={(e) => {
-                          if (e.metaKey || e.ctrlKey) return;
-                          e.preventDefault();
-                          handleLaunch(tool.name, getToolPath(tool.category, tool.slug));
-                        }}
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-slate-900 dark:text-zinc-50 group-hover:translate-x-1 transition-all duration-200"
-                      >
-                        <span>LAUNCH</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
+                      {/* Clean Minimal Footer */}
+                      <div className="pt-4 mt-5 border-t border-zinc-100 dark:border-white/[0.05] flex items-center justify-between text-[11px] font-mono text-zinc-400 dark:text-zinc-500 font-medium">
+                        <span>{tool.usageCount} calculations</span>
+                        <span className="text-[11px] uppercase font-semibold tracking-wider text-zinc-400 dark:text-zinc-500 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
+                          Open &rarr;
+                        </span>
+                      </div>
+                    </Link>
                   </motion.div>
                 );
               })}
             </AnimatePresence>
           </div>
         ) : (
-          <div className="text-center py-20 border border-dashed border-slate-200 dark:border-zinc-800 rounded-3xl space-y-3 bg-white dark:bg-zinc-950">
+          <div className="text-center py-20 border border-dashed border-zinc-200 dark:border-white/[0.08] rounded-3xl space-y-3 bg-zinc-500/[0.02] dark:bg-white/[0.02] backdrop-blur-md">
             <div className="text-xs font-mono text-slate-400 uppercase tracking-widest font-bold">NO UTILITIES FOUND MATCHING &quot;{search.toUpperCase()}&quot;</div>
             <button
               onClick={() => {
@@ -499,9 +438,9 @@ export default function HomePage() {
             </p>
           </div>
           <div className="space-y-2">
-            <h4 className="text-[10px] font-bold uppercase text-slate-400 tracking-widest">Powered by Groq AI</h4>
+            <h4 className="text-[10px] font-bold uppercase text-slate-400 tracking-widest">100% Client-Side Private</h4>
             <p className="text-xs text-slate-500 dark:text-zinc-400 leading-relaxed font-medium">
-              AI text and summarization generators use server-side high-speed Groq API calls directly, delivering unmatched performance.
+              Every operation executes strictly inside your browser sandbox. No documents, files, or sensitive inputs ever leave your device.
             </p>
           </div>
         </div>
@@ -509,53 +448,6 @@ export default function HomePage() {
 
       </div>
       <Footer />
-
-      {/* Launch Loading Portal */}
-      <AnimatePresence>
-        {launchingTool && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.15 }}
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-zinc-950/90 text-white backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ scale: 0.97, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.97, opacity: 0 }}
-              transition={{ duration: 0.15 }}
-              className="flex flex-col items-center text-center space-y-5 max-w-sm px-6"
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-indigo-500/15 rounded-full blur-lg animate-pulse" />
-                <div className="relative w-14 h-14 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center shadow-xl">
-                  <BrandLogo showText={false} className="w-7 h-7 text-white" />
-                </div>
-                <div className="absolute -inset-1 border-t-2 border-l-2 border-indigo-500 rounded-full animate-spin" />
-              </div>
-
-              <div className="space-y-1">
-                <div className="text-[9px] font-mono tracking-widest uppercase text-zinc-500">
-                  Initializing Sandbox
-                </div>
-                <h3 className="text-lg font-display font-bold text-zinc-100">
-                  Launching {launchingTool.name}
-                </h3>
-              </div>
-
-              <div className="w-32 h-1 bg-zinc-900 rounded-full overflow-hidden border border-zinc-850">
-                <motion.div
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.28, ease: "easeOut" }}
-                  className="h-full bg-gradient-to-r from-indigo-500 to-indigo-400"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
