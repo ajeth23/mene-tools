@@ -147,7 +147,43 @@ export const TOOLS_LIST: ToolMetadata[] = [
         answer: "By default, pages are rendered at standard high-density 150-300 DPI, making them highly crisp for presentations and layouts."
       }
     ],
-    relatedSlugs: ["merge-pdf", "image-compressor", "image-converter"]
+    relatedSlugs: ["merge-pdf", "image-compressor", "image-converter", "image-to-pdf"]
+  },
+  {
+    id: "image-to-pdf",
+    name: "Image to PDF",
+    slug: "image-to-pdf",
+    category: "PDF",
+    description: "Convert JPG, PNG, WebP, and other images into a polished, high-quality PDF document instantly.",
+    seoTitle: "Free Image to PDF Converter — Convert Photos & Images to PDF | Mene Tools",
+    seoDesc: "Convert JPG, PNG, and WebP images to PDF in seconds. Reorder pages, customize margins, paper size (A4, Letter, Fit), and orientation. 100% private client-side execution.",
+    iconName: "FileImage",
+    usageCount: "195.8K",
+    benefits: [
+      "100% private: images are processed directly in your browser without uploading to any server",
+      "Flexible page sizing: choose between Fit to Image, A4, or US Letter with portrait/landscape controls",
+      "Reorder, rotate, and manage multiple photos seamlessly before compiling into a PDF"
+    ],
+    howItWorks: [
+      "Upload or drag and drop your images (PNG, JPG, WebP, GIF, SVG, BMP).",
+      "Arrange the image order, rotate pages if needed, and configure page layout (margins, paper size).",
+      "Click Convert to PDF to generate and download your unified document."
+    ],
+    faqs: [
+      {
+        question: "Can I combine multiple images into a single PDF?",
+        answer: "Yes, you can upload multiple images, rearrange their sequence with easy reorder controls, and compile them all into a single organized PDF document."
+      },
+      {
+        question: "Are my photos uploaded to an external server?",
+        answer: "No. Everything is rendered and converted directly inside your browser using client-side Web APIs and pdf-lib. Your images never leave your computer or device."
+      },
+      {
+        question: "Can I adjust the page size and orientation?",
+        answer: "Yes! You can choose between Fit to Image (preserves original dimensions), standard A4, or US Letter, with customizable margins and auto/manual orientation."
+      }
+    ],
+    relatedSlugs: ["pdf-to-image", "merge-pdf", "image-compressor", "compress-pdf"]
   },
 
   // --- Images ---
@@ -743,6 +779,7 @@ export function getToolPath(category: string, slug: string): string {
     else if (s === "split-pdf") s = "split";
     else if (s === "compress-pdf") s = "compress";
     else if (s === "pdf-to-image") s = "to-image";
+    else if (s === "image-to-pdf") s = "image-to-pdf";
   } else if (cat === "images") {
     if (s === "image-compressor") s = "compressor";
     else if (s === "image-converter") s = "converter";
@@ -766,6 +803,8 @@ export function findToolByCategoryAndSlug(categoryParam: string, slugParam: stri
     if (t.slug === `${cleanSlug}-${cleanCategory}`) return true;
     if (t.slug === `${cleanCategory}-${cleanSlug}`) return true;
     if (cleanSlug === "to-image" && t.slug === "pdf-to-image") return true;
+    if (cleanSlug === "from-image" && t.slug === "image-to-pdf") return true;
+    if (cleanSlug === "image-to-pdf" && t.slug === "image-to-pdf") return true;
 
     // Handle singular form (e.g. "image" category parameter for "images" tools)
     const catSingular = cleanCategory.endsWith('s') ? cleanCategory.slice(0, -1) : cleanCategory;
@@ -777,10 +816,12 @@ export function findToolByCategoryAndSlug(categoryParam: string, slugParam: stri
     if (cleanCategory === "pdf" && cleanSlug === "split" && t.slug === "split-pdf") return true;
     if (cleanCategory === "pdf" && cleanSlug === "compress" && t.slug === "compress-pdf") return true;
     if (cleanCategory === "pdf" && cleanSlug === "to-image" && t.slug === "pdf-to-image") return true;
+    if (cleanCategory === "pdf" && (cleanSlug === "image-to-pdf" || cleanSlug === "from-image" || cleanSlug === "to-pdf") && t.slug === "image-to-pdf") return true;
 
     if (cleanCategory === "images" && cleanSlug === "compressor" && t.slug === "image-compressor") return true;
     if (cleanCategory === "images" && cleanSlug === "converter" && t.slug === "image-converter") return true;
     if (cleanCategory === "images" && cleanSlug === "svg-optimizer" && t.slug === "svg-optimizer") return true;
+    if (cleanCategory === "images" && (cleanSlug === "image-to-pdf" || cleanSlug === "to-pdf") && t.slug === "image-to-pdf") return true;
 
     return false;
   });

@@ -18,6 +18,7 @@ Combine, extract, or optimize documents directly on your device.
 - **Split PDF**: `/pdf/split` - Extract selected page numbers or ranges into separate PDF outputs.
 - **Compress PDF**: `/pdf/compress` - Reduce PDF document weight without losing vector text readability.
 - **PDF to Image**: `/pdf/to-image` - Convert PDF pages into high-density PNG or JPEG assets.
+- **Image to PDF**: `/pdf/image-to-pdf` - Convert multiple JPG, PNG, and WebP images into a single PDF with page size, orientation, and margin settings.
 
 ### Image Processing
 Optimize and transform graphic formats offline.

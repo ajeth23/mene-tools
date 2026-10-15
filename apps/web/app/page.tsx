@@ -379,6 +379,9 @@ export default function HomePage() {
                   <li>
                     <Link href="/pdf/to-image" className="hover:text-indigo-500 transition-colors">PDF to Image</Link>
                   </li>
+                  <li>
+                    <Link href="/pdf/image-to-pdf" className="hover:text-indigo-500 transition-colors">Image to PDF</Link>
+                  </li>
                 </ul>
               </div>
 

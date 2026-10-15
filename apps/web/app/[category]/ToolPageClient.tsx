@@ -32,6 +32,7 @@ const MergePDF = dynamic(() => import("@/components/tools/MergePDF"), { ssr: fal
 const SplitPDF = dynamic(() => import("@/components/tools/SplitPDF"), { ssr: false, loading: LoadingTool });
 const CompressPDF = dynamic(() => import("@/components/tools/CompressPDF"), { ssr: false, loading: LoadingTool });
 const PDFToImage = dynamic(() => import("@/components/tools/PDFToImage"), { ssr: false, loading: LoadingTool });
+const ImageToPDF = dynamic(() => import("@/components/tools/ImageToPDF"), { ssr: false, loading: LoadingTool });
 const ImageCompressor = dynamic(() => import("@/components/tools/ImageCompressor"), { ssr: false, loading: LoadingTool });
 const ImageConverter = dynamic(() => import("@/components/tools/ImageConverter"), { ssr: false, loading: LoadingTool });
 const BackgroundRemover = dynamic(() => import("@/components/tools/BackgroundRemover"), { ssr: false, loading: LoadingTool });
@@ -142,6 +143,8 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
         return <CompressPDF />;
       case "pdf-to-image":
         return <PDFToImage />;
+      case "image-to-pdf":
+        return <ImageToPDF />;
       case "image-compressor":
         return <ImageCompressor />;
       case "image-converter":

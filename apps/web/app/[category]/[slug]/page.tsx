@@ -23,6 +23,7 @@ export async function generateStaticParams() {
       else if (tool.slug === "split-pdf") shortSlug = "split";
       else if (tool.slug === "compress-pdf") shortSlug = "compress";
       else if (tool.slug === "pdf-to-image") shortSlug = "to-image";
+      else if (tool.slug === "image-to-pdf") shortSlug = "image-to-pdf";
     } else if (categoryLower === "images") {
       if (tool.slug === "image-compressor") shortSlug = "compressor";
       else if (tool.slug === "image-converter") shortSlug = "converter";
@@ -34,6 +35,14 @@ export async function generateStaticParams() {
       category: categoryLower,
       slug: shortSlug,
     });
+
+    // Also push alias if image-to-pdf
+    if (tool.slug === "image-to-pdf") {
+      paramsList.push({
+        category: categoryLower,
+        slug: "from-image",
+      });
+    }
 
     // Also push original slug as fallback/alias to avoid 404s
     if (shortSlug !== tool.slug) {

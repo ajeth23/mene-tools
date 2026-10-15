@@ -36,6 +36,7 @@ Whether you're merging multi-gigabyte PDFs, compressing images with live before/
 - **No Database Persistence**: No tracking databases, user accounts, or server-side document storage.
 
 ### 📄 Enterprise PDF Suite
+- **Image to PDF Converter**: Convert multiple JPG, PNG, WebP, and other photos into high-quality PDFs with customizable page format (Fit, A4, Letter), margins, orientation, and image rotation.
 - **PDF to Image Converter**: Render PDF pages into high-resolution PNG/JPEG images with real-time thumbnail previews and single-click **Download All as ZIP**.
 - **Split PDF**: Visually preview pages, select custom page ranges, or check thumbnail grids with live dual-binding formula synchronization.
 - **Merge PDF**: Combine multiple PDF files seamlessly with drag-and-drop ordering and cover thumbnail previews.
