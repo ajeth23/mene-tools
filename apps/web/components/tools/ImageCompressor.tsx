@@ -184,7 +184,7 @@ export default function ImageCompressor() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
             {/* Original Preview */}
             <div className="space-y-2">
-              <div className="flex justify-between items-center text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-450 dark:text-zinc-550">
+              <div className="flex justify-between items-center text-xs font-sans font-medium text-zinc-450 dark:text-zinc-550">
                 <span>Original Image</span>
                 <span>{stats?.original || `${(file.size / 1024).toFixed(1)} KB`}</span>
               </div>
@@ -195,20 +195,20 @@ export default function ImageCompressor() {
 
             {/* Compressed Preview */}
             <div className="space-y-2">
-              <div className="flex justify-between items-center text-[10px] font-mono font-bold uppercase tracking-wider text-indigo-500">
+              <div className="flex justify-between items-center text-xs font-sans font-medium text-amber-500">
                 <span>Compressed Preview</span>
                 <span>{stats ? `${stats.compressed} (-${stats.percent}%)` : "Rendering..."}</span>
               </div>
-              <div className="aspect-video bg-zinc-50 dark:bg-zinc-950 border border-indigo-100 dark:border-indigo-950/20 rounded-xl overflow-hidden flex items-center justify-center p-2 relative">
+              <div className="aspect-video bg-zinc-50 dark:bg-zinc-950 border border-amber-100 dark:border-amber-950/20 rounded-xl overflow-hidden flex items-center justify-center p-2 relative">
                 {loading ? (
                   <div className="flex flex-col items-center gap-2 text-zinc-400">
                     <RefreshCw className="w-5 h-5 animate-spin" />
-                    <span className="text-[9px] font-mono uppercase">Optimizing quality...</span>
+                    <span className="text-xs font-mono uppercase">Optimizing quality...</span>
                   </div>
                 ) : compressedPreview ? (
                   <img src={compressedPreview} alt="Compressed preview" className="max-h-full object-contain shadow-sm rounded" />
                 ) : (
-                  <div className="w-5 h-5 border-2 border-indigo-500 border-t-transparent animate-spin rounded-full" />
+                  <div className="w-5 h-5 border-2 border-amber-500 border-t-transparent animate-spin rounded-full" />
                 )}
               </div>
             </div>
@@ -217,7 +217,7 @@ export default function ImageCompressor() {
           {/* Parameters Controls */}
           <div className="space-y-4 pt-2">
             <div className="flex items-center gap-1.5 text-xs font-mono font-semibold uppercase text-zinc-450 dark:text-zinc-550">
-              <Sliders className="w-3.5 h-3.5 text-indigo-500" />
+              <Sliders className="w-3.5 h-3.5 text-amber-500" />
               <span>Compression Parameters</span>
             </div>
 
@@ -235,9 +235,9 @@ export default function ImageCompressor() {
                   setQuality(parseInt(e.target.value, 10));
                   setSuccess(false);
                 }}
-                className="w-full accent-indigo-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                className="w-full accent-amber-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-zinc-450 dark:text-zinc-550 font-mono">
+              <div className="flex justify-between text-xs text-zinc-450 dark:text-zinc-550 font-mono">
                 <span>Smallest File (Higher Compression)</span>
                 <span>Highest Quality (Original Detail)</span>
               </div>

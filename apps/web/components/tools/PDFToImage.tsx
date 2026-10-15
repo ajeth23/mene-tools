@@ -317,7 +317,7 @@ export default function PDFToImage() {
           />
           <div className="max-w-md mx-auto space-y-3">
             <div className="w-12 h-12 rounded-lg bg-zinc-50 dark:bg-zinc-950 flex items-center justify-center mx-auto text-zinc-500 dark:text-zinc-400 shadow-sm">
-              {loading ? <RefreshCw className="w-6 h-6 animate-spin text-indigo-500" /> : <Upload className="w-6 h-6" />}
+              {loading ? <RefreshCw className="w-6 h-6 animate-spin text-amber-500" /> : <Upload className="w-6 h-6" />}
             </div>
             <div>
               <h3 className="text-sm font-semibold text-zinc-800 dark:text-zinc-100">
@@ -334,7 +334,7 @@ export default function PDFToImage() {
           {/* File Header Info */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4 gap-3">
             <div className="flex items-center gap-3">
-              <FileText className="w-8 h-8 text-indigo-500 shrink-0" />
+              <FileText className="w-8 h-8 text-amber-500 shrink-0" />
               <div>
                 <p className="font-semibold text-zinc-800 dark:text-zinc-200 text-sm truncate max-w-[250px] sm:max-w-md">
                   {file.name}
@@ -364,7 +364,7 @@ export default function PDFToImage() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-zinc-50 dark:bg-zinc-950 p-4 rounded-xl border border-zinc-100 dark:border-zinc-900">
             <div className="flex flex-wrap items-center gap-4">
               <div className="space-y-1">
-                <label className="text-[10px] font-mono font-bold uppercase text-zinc-400 block">
+                <label className="text-xs font-mono font-bold uppercase text-zinc-400 block">
                   Export Format
                 </label>
                 <div className="inline-flex rounded-lg border border-zinc-200 dark:border-zinc-800 p-0.5 bg-white dark:bg-zinc-900">
@@ -373,7 +373,7 @@ export default function PDFToImage() {
                       key={fmt}
                       type="button"
                       onClick={() => setFormat(fmt)}
-                      className={`px-3 py-1 rounded-md text-[10px] uppercase font-bold tracking-wider transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-md text-xs uppercase font-bold tracking-wider transition-all cursor-pointer ${
                         format === fmt
                           ? "bg-zinc-900 dark:bg-white text-white dark:text-zinc-950 shadow-sm"
                           : "text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
@@ -387,12 +387,12 @@ export default function PDFToImage() {
 
               {pageCount !== null && (
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold uppercase text-zinc-400 block">
+                  <span className="text-xs font-mono font-bold uppercase text-zinc-400 block">
                     Page Selection
                   </span>
                   <button
                     onClick={toggleSelectAll}
-                    className="px-3 py-1 border border-zinc-200 dark:border-zinc-800 rounded-lg text-[10px] font-bold text-zinc-600 dark:text-zinc-300 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-850 transition-colors cursor-pointer"
+                    className="px-3 py-1 border border-zinc-200 dark:border-zinc-800 rounded-lg text-xs font-bold text-zinc-600 dark:text-zinc-300 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-850 transition-colors cursor-pointer"
                   >
                     {selectedPages.size === pageCount ? "Deselect All" : "Select All"}
                   </button>
@@ -407,7 +407,7 @@ export default function PDFToImage() {
               <button
                 onClick={handleExportZip}
                 disabled={selectedPages.size === 0 || batchLoading}
-                className="inline-flex items-center gap-1.5 px-4 py-2 border border-transparent rounded-lg text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 transition-all shadow-sm focus:outline-none cursor-pointer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 border border-transparent rounded-lg text-xs font-semibold text-white bg-amber-700 hover:bg-amber-800 disabled:opacity-50 transition-all shadow-sm focus:outline-none cursor-pointer"
               >
                 {batchLoading ? (
                   <>
@@ -426,8 +426,8 @@ export default function PDFToImage() {
 
           {/* Batch Progress Banner */}
           {batchProgress && (
-            <div className="flex items-center gap-3 px-4 py-3 border border-indigo-100 dark:border-indigo-900/30 bg-indigo-50/20 dark:bg-indigo-950/10 rounded-lg text-xs font-semibold text-indigo-600 dark:text-indigo-400">
-              <RefreshCw className="w-4 h-4 animate-spin text-indigo-500 shrink-0" />
+            <div className="flex items-center gap-3 px-4 py-3 border border-amber-100 dark:border-amber-900/30 bg-amber-50/20 dark:bg-amber-950/10 rounded-lg text-xs font-semibold text-amber-600 dark:text-amber-400">
+              <RefreshCw className="w-4 h-4 animate-spin text-amber-500 shrink-0" />
               <span>{batchProgress}</span>
             </div>
           )}
@@ -450,7 +450,7 @@ export default function PDFToImage() {
 
           {/* Grid Page Previews */}
           <div className="space-y-3">
-            <h4 className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400">
+            <h4 className="text-xs font-sans font-medium text-zinc-400">
               Document Pages Preview {loadingPreviews && "• Rendering thumbnails..."}
             </h4>
 
@@ -464,7 +464,7 @@ export default function PDFToImage() {
                     key={p.index}
                     className={`group relative aspect-[3/4] border rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-950 transition-all ${
                       isSelected
-                        ? "border-indigo-500 ring-2 ring-indigo-500/10"
+                        ? "border-amber-500 ring-2 ring-amber-500/10"
                         : "border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700"
                     }`}
                   >
@@ -478,7 +478,7 @@ export default function PDFToImage() {
                     ) : (
                       <div className="w-full h-full flex flex-col items-center justify-center text-zinc-300 dark:text-zinc-700">
                         <ImageIcon className="w-6 h-6 animate-pulse" />
-                        <span className="text-[9px] font-mono mt-2 uppercase tracking-wide">Page {p.index + 1}</span>
+                        <span className="text-xs font-mono mt-2 uppercase tracking-wide">Page {p.index + 1}</span>
                       </div>
                     )}
 
@@ -487,7 +487,7 @@ export default function PDFToImage() {
                       onClick={() => togglePageSelection(p.index)}
                       className={`absolute top-2 left-2 w-5 h-5 rounded-md flex items-center justify-center border transition-all cursor-pointer ${
                         isSelected
-                          ? "bg-indigo-600 border-transparent text-white"
+                          ? "bg-amber-700 border-transparent text-white"
                           : "bg-white/80 dark:bg-zinc-900/80 border-zinc-350 dark:border-zinc-750 text-transparent"
                       }`}
                     >
@@ -496,7 +496,7 @@ export default function PDFToImage() {
 
                     {/* Bottom Label Bar */}
                     <div className="absolute bottom-0 inset-x-0 bg-zinc-950/70 border-t border-white/5 py-1 text-center backdrop-blur-[2px]">
-                      <span className="text-[9px] font-mono font-bold text-white">
+                      <span className="text-xs font-mono font-bold text-white">
                         PAGE {p.index + 1}
                       </span>
                     </div>
@@ -506,14 +506,14 @@ export default function PDFToImage() {
                       <div className="absolute inset-0 bg-zinc-950/60 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2.5">
                         <button
                           onClick={() => setLightboxIndex(p.index)}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/90 hover:bg-white text-zinc-900 text-[10px] font-bold transition-all transform translate-y-2 group-hover:translate-y-0 cursor-pointer"
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/90 hover:bg-white text-zinc-900 text-xs font-bold transition-all transform translate-y-2 group-hover:translate-y-0 cursor-pointer"
                         >
                           <Eye className="w-3.5 h-3.5" />
                           <span>Preview</span>
                         </button>
                         <button
                           onClick={() => handleDownloadSingle(p.index)}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-[10px] font-bold transition-all transform translate-y-2 group-hover:translate-y-0 delay-75 cursor-pointer"
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-700 hover:bg-amber-500 text-white text-xs font-bold transition-all transform translate-y-2 group-hover:translate-y-0 delay-75 cursor-pointer"
                         >
                           <Download className="w-3.5 h-3.5" />
                           <span>Download</span>
@@ -564,7 +564,7 @@ export default function PDFToImage() {
             <div className="flex-1 overflow-auto bg-zinc-50 dark:bg-zinc-950 p-6 flex items-center justify-center min-h-[300px]">
               {loadingLightbox ? (
                 <div className="flex flex-col items-center gap-2.5">
-                  <RefreshCw className="w-6 h-6 text-indigo-500 animate-spin" />
+                  <RefreshCw className="w-6 h-6 text-amber-500 animate-spin" />
                   <span className="text-xs font-mono text-zinc-500">Rendering page layout...</span>
                 </div>
               ) : lightboxUrl ? (

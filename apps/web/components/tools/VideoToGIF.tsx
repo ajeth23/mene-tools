@@ -132,7 +132,7 @@ export default function VideoToGIF() {
         <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <div className="flex items-center gap-3">
-              <FileVideo className="w-8 h-8 text-indigo-500" />
+              <FileVideo className="w-8 h-8 text-amber-500" />
               <div>
                 <p className="font-semibold text-zinc-800 dark:text-zinc-200 text-sm">
                   {file.name}
@@ -184,7 +184,7 @@ export default function VideoToGIF() {
                     setFps(parseInt(e.target.value, 10));
                     setSuccess(false);
                   }}
-                  className="w-full accent-indigo-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                  className="w-full accent-amber-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
                 />
               </div>
 
@@ -236,15 +236,15 @@ export default function VideoToGIF() {
                   <div
                     key={item.id}
                     onClick={() => handleDownloadFrame(item.url, index)}
-                    className="border border-zinc-150 dark:border-zinc-850 rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-950 p-1.5 cursor-pointer hover:border-indigo-500 transition-colors group relative"
+                    className="border border-zinc-150 dark:border-zinc-850 rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-950 p-1.5 cursor-pointer hover:border-amber-500 transition-colors group relative"
                   >
                     <div className="aspect-video w-full rounded-lg overflow-hidden bg-black relative">
                       <img src={item.url} alt={`Frame ${index}`} className="w-full h-full object-cover" />
-                      <span className="absolute bottom-1 right-1 px-1 py-0.5 bg-black/60 backdrop-blur rounded text-[9px] font-mono font-bold text-white uppercase">
+                      <span className="absolute bottom-1 right-1 px-1 py-0.5 bg-black/60 backdrop-blur rounded text-xs font-mono font-bold text-white uppercase">
                         {item.time}
                       </span>
                     </div>
-                    <div className="mt-2 px-1 flex items-center justify-between text-[11px] font-medium text-zinc-500 group-hover:text-indigo-500">
+                    <div className="mt-2 px-1 flex items-center justify-between text-[11px] font-medium text-zinc-500 group-hover:text-amber-500">
                       <span>Frame #{index + 1}</span>
                       <ImageIcon className="w-3.5 h-3.5" />
                     </div>

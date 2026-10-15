@@ -79,7 +79,7 @@ export default function JSONFormatter() {
         <div className="flex gap-2 shrink-0">
           <button
             onClick={loadSample}
-            className="text-xs text-indigo-500 hover:underline px-3 py-1 focus:outline-none cursor-pointer"
+            className="text-xs text-amber-500 hover:underline px-3 py-1 focus:outline-none cursor-pointer"
           >
             Load Sample
           </button>
@@ -112,7 +112,7 @@ export default function JSONFormatter() {
             setError("");
           }}
           placeholder='Paste your raw JSON payload here... (e.g. {"key": "value"})'
-          className="w-full h-96 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+          className="w-full h-96 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
         />
 
         {error && (

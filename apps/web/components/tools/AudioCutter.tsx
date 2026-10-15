@@ -193,7 +193,7 @@ export default function AudioCutter() {
         <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 rounded-xl p-6 shadow-sm space-y-6">
           <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <div className="flex items-center gap-3">
-              <FileAudio className="w-8 h-8 text-indigo-500" />
+              <FileAudio className="w-8 h-8 text-amber-500" />
               <div>
                 <p className="font-semibold text-zinc-800 dark:text-zinc-200 text-sm">
                   {file.name}
@@ -234,7 +234,7 @@ export default function AudioCutter() {
                     setStartTime(Math.min(val, endTime - 0.1));
                     setSuccess(false);
                   }}
-                  className="w-full accent-indigo-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                  className="w-full accent-amber-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
                 />
               </div>
 
@@ -254,7 +254,7 @@ export default function AudioCutter() {
                     setEndTime(Math.max(val, startTime + 0.1));
                     setSuccess(false);
                   }}
-                  className="w-full accent-indigo-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                  className="w-full accent-amber-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
                 />
               </div>
             </div>

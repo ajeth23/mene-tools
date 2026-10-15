@@ -11,12 +11,12 @@ export default function TermsPage() {
 
       <div>
         <Header />
-        
-        <main className="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+
+        <main id="main-content" tabIndex={-1} className="max-w-3xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
           {/* Back Button */}
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold tracking-wider text-zinc-400 hover:text-[#0052FF] dark:hover:text-zinc-200 transition-colors group mb-8 uppercase cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-sans font-bold tracking-wider text-zinc-400 hover:text-[#0052FF] dark:hover:text-zinc-200 transition-colors group mb-8 uppercase cursor-pointer"
           >
             <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-0.5 transition-transform" />
             <span>Back to Workspace</span>
@@ -24,53 +24,53 @@ export default function TermsPage() {
 
           {/* Heading */}
           <div className="space-y-4 border-b border-zinc-200/60 dark:border-zinc-900 pb-8 mb-10">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-indigo-200/50 dark:border-indigo-950/20 bg-indigo-50/30 dark:bg-indigo-950/10 text-[9px] font-mono tracking-wider text-indigo-600 dark:text-indigo-400 uppercase font-bold">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-indigo-200/50 dark:border-indigo-950/20 bg-indigo-50/30 dark:bg-indigo-950/10 text-xs font-sans tracking-wider text-indigo-600 dark:text-indigo-400 uppercase font-bold">
               <CheckCircle className="w-3.5 h-3.5 text-indigo-500" />
               <span>Free Browser-Native Utility Engine</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl font-display font-black tracking-tight leading-none text-zinc-900 dark:text-white">
-              TERMS OF SERVICE
+            <h1 className="text-3xl sm:text-4xl font-display font-semibold tracking-tight leading-none text-zinc-900 dark:text-white">
+              Terms of service
             </h1>
-            <p className="text-xs font-mono text-zinc-400">
+            <p className="text-xs font-sans text-zinc-400">
               Last Updated: July 21, 2026 • Free Open Utility Tools
             </p>
           </div>
 
           {/* Structured Document (Modern Stripe-Doc styling) */}
           <div className="space-y-12">
-            <section className="border-l-2 border-[#0052FF] pl-6 space-y-3">
-              <h2 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider">
+            <section className="border-l-2 border-amber-400 pl-6 space-y-3">
+              <h2 className="text-sm font-sans font-bold text-zinc-800 dark:text-zinc-200 tracking-normal">
                 1. Agreement to Terms
               </h2>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
-                By accessing and using Mene Tools (available at tools.mene.app), you agree to be bound by these simple Terms of Service. 
+                By accessing and using Mene Tools (available at tools.mene.app), you agree to be bound by these simple Terms of Service.
                 If you do not agree, please do not use the utilities.
               </p>
             </section>
 
             <section className="border-l-2 border-zinc-200 dark:border-zinc-800 pl-6 space-y-3">
-              <h2 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider">
+              <h2 className="text-sm font-sans font-bold text-zinc-800 dark:text-zinc-200 tracking-normal">
                 2. Free Client-Side Service
               </h2>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
-                All PDF and image manipulation tools are offered 100% free of charge and execute entirely client-side on your device. 
-                We provide no warranty on the accuracy, suitability, or quality of converted assets. 
+                All PDF and image manipulation tools are offered 100% free of charge and execute entirely client-side on your device.
+                We provide no warranty on the accuracy, suitability, or quality of converted assets.
                 Users are responsible for verifying their downloaded files.
               </p>
             </section>
 
             <section className="border-l-2 border-zinc-200 dark:border-zinc-800 pl-6 space-y-3">
-              <h2 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider">
+              <h2 className="text-sm font-sans font-bold text-zinc-800 dark:text-zinc-200 tracking-normal">
                 3. Prohibited Abuse
               </h2>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
-                You may not automate requests to our AI API gateway. 
+                You may not automate requests to our AI API gateway.
                 We reserve the right to block access or restrict daily quotas for any client IP address showing abnormal usage signatures.
               </p>
             </section>
 
             <section className="border-l-2 border-zinc-200 dark:border-zinc-800 pl-6 space-y-3">
-              <h2 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider">
+              <h2 className="text-sm font-sans font-bold text-zinc-800 dark:text-zinc-200 tracking-normal">
                 4. Disclaimer of Liability
               </h2>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
@@ -79,7 +79,7 @@ export default function TermsPage() {
             </section>
 
             <section className="border-l-2 border-zinc-200 dark:border-zinc-800 pl-6 space-y-3">
-              <h2 className="text-sm font-mono font-bold text-zinc-800 dark:text-zinc-200 uppercase tracking-wider">
+              <h2 className="text-sm font-sans font-bold text-zinc-800 dark:text-zinc-200 tracking-normal">
                 5. Revisions
               </h2>
               <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">

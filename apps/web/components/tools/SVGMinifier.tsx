@@ -93,7 +93,7 @@ export default function SVGMinifier() {
               <button
                 type="button"
                 onClick={() => setSvgInput(sampleSvg)}
-                className="text-xs text-indigo-500 hover:underline cursor-pointer"
+                className="text-xs text-amber-500 hover:underline cursor-pointer"
               >
                 Load Sample SVG
               </button>
@@ -102,7 +102,7 @@ export default function SVGMinifier() {
               value={svgInput}
               onChange={(e) => setSvgInput(e.target.value)}
               placeholder="Paste raw <svg> tags or select vector documents..."
-              className="w-full h-80 px-3 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-950 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-2.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+              className="w-full h-80 px-3 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-950 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-2.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
             />
           </div>
 
@@ -165,15 +165,15 @@ export default function SVGMinifier() {
       {stats && (
         <div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-900 text-center">
           <div>
-            <p className="text-[10px] font-mono font-semibold text-zinc-400 uppercase">Original Length</p>
+            <p className="text-xs font-mono font-semibold text-zinc-400 uppercase">Original Length</p>
             <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 mt-1">{stats.before} bytes</p>
           </div>
           <div>
-            <p className="text-[10px] font-mono font-semibold text-zinc-400 uppercase">Optimized Length</p>
-            <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mt-1">{stats.after} bytes</p>
+            <p className="text-xs font-mono font-semibold text-zinc-400 uppercase">Optimized Length</p>
+            <p className="text-sm font-semibold text-amber-600 dark:text-amber-400 mt-1">{stats.after} bytes</p>
           </div>
           <div className="bg-emerald-50/50 dark:bg-emerald-950/20 rounded-lg p-1.5 border border-emerald-100/50 dark:border-emerald-950/30">
-            <p className="text-[10px] font-mono font-semibold text-emerald-500 uppercase">Saved ({stats.saved}%)</p>
+            <p className="text-xs font-mono font-semibold text-emerald-500 uppercase">Saved ({stats.saved}%)</p>
             <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 mt-1 flex items-center justify-center gap-0.5 animate-pulse">
               <ArrowDown className="w-3.5 h-3.5 shrink-0" />
               {stats.before - stats.after} Bytes

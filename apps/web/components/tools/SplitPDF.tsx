@@ -216,7 +216,7 @@ export default function SplitPDF() {
           {/* Header */}
           <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <div className="flex items-center gap-3">
-              <FileText className="w-8 h-8 text-indigo-500" />
+              <FileText className="w-8 h-8 text-amber-500" />
               <div>
                 <p className="font-semibold text-zinc-800 dark:text-zinc-200 text-sm truncate max-w-xs sm:max-w-md">
                   {file.name}
@@ -252,7 +252,7 @@ export default function SplitPDF() {
                 value={rangeStr}
                 onChange={(e) => handleRangeTextChange(e.target.value)}
                 placeholder="e.g. 1, 3-5, 7"
-                className="w-full px-3 py-2 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-950 text-sm font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 text-zinc-900 dark:text-zinc-50"
+                className="w-full px-3 py-2 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-950 text-sm font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 text-zinc-900 dark:text-zinc-50"
               />
               <p className="text-[11px] text-zinc-400">
                 Use checkboxes on the page thumbnails below to select pages visually, or type directly in the formula input above.
@@ -261,7 +261,7 @@ export default function SplitPDF() {
 
             {/* Document Pages Preview Grid */}
             <div className="space-y-3 pt-2">
-              <h4 className="text-[10px] font-mono font-bold uppercase tracking-wider text-zinc-400">
+              <h4 className="text-xs font-sans font-medium text-zinc-400">
                 Select Pages Visually {loadingPreviews && "• Rendering..."}
               </h4>
 
@@ -276,7 +276,7 @@ export default function SplitPDF() {
                       onClick={() => togglePageSelection(i)}
                       className={`group relative aspect-[3/4] border rounded-xl overflow-hidden bg-zinc-50 dark:bg-zinc-950 transition-all cursor-pointer select-none ${
                         isSelected
-                          ? "border-indigo-500 ring-2 ring-indigo-500/10"
+                          ? "border-amber-500 ring-2 ring-amber-500/10"
                           : "border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-700"
                       }`}
                     >
@@ -290,7 +290,7 @@ export default function SplitPDF() {
                       ) : (
                         <div className="w-full h-full flex flex-col items-center justify-center text-zinc-300 dark:text-zinc-700">
                           <ImageIcon className="w-6 h-6 animate-pulse" />
-                          <span className="text-[9px] font-mono mt-2 uppercase tracking-wide">Page {i + 1}</span>
+                          <span className="text-xs font-mono mt-2 uppercase tracking-wide">Page {i + 1}</span>
                         </div>
                       )}
 
@@ -298,7 +298,7 @@ export default function SplitPDF() {
                       <div
                         className={`absolute top-2 left-2 w-5 h-5 rounded-md flex items-center justify-center border transition-all ${
                           isSelected
-                            ? "bg-indigo-600 border-transparent text-white"
+                            ? "bg-amber-700 border-transparent text-white"
                             : "bg-white/80 dark:bg-zinc-900/80 border-zinc-300 dark:border-zinc-700 text-transparent"
                         }`}
                       >
@@ -307,7 +307,7 @@ export default function SplitPDF() {
 
                       {/* Page Tag */}
                       <div className="absolute bottom-0 inset-x-0 bg-zinc-950/70 border-t border-white/5 py-1 text-center backdrop-blur-[2px]">
-                        <span className="text-[9px] font-mono font-bold text-white">
+                        <span className="text-xs font-mono font-bold text-white">
                           PAGE {i + 1}
                         </span>
                       </div>

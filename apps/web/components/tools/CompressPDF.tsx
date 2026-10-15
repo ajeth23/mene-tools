@@ -145,7 +145,7 @@ export default function CompressPDF() {
           {/* Header */}
           <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4">
             <div className="flex items-center gap-3">
-              <FileText className="w-8 h-8 text-indigo-500" />
+              <FileText className="w-8 h-8 text-amber-500" />
               <div>
                 <p className="font-semibold text-zinc-800 dark:text-zinc-200 text-sm truncate max-w-xs sm:max-w-md">
                   {file.name}
@@ -181,7 +181,7 @@ export default function CompressPDF() {
               ) : (
                 <div className="flex flex-col items-center justify-center text-zinc-300 dark:text-zinc-700 h-full">
                   <ImageIcon className="w-8 h-8 animate-pulse" />
-                  <span className="text-[10px] font-mono mt-2 uppercase tracking-wide">
+                  <span className="text-xs font-mono mt-2 uppercase tracking-wide">
                     {loadingPreview ? "Rendering..." : "PDF Cover Page"}
                   </span>
                 </div>
@@ -193,15 +193,15 @@ export default function CompressPDF() {
               {stats && (
                 <div className="grid grid-cols-3 gap-4 p-4 rounded-xl bg-zinc-50 dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-900/80 text-center animate-[fadeIn_0.2s_ease-out]">
                   <div>
-                    <p className="text-[10px] font-mono font-semibold text-zinc-400 uppercase">Original</p>
+                    <p className="text-xs font-mono font-semibold text-zinc-400 uppercase">Original</p>
                     <p className="text-sm font-semibold text-zinc-800 dark:text-zinc-200 mt-1">{stats.original}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-mono font-semibold text-zinc-400 uppercase">Compressed</p>
-                    <p className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 mt-1">{stats.compressed}</p>
+                    <p className="text-xs font-mono font-semibold text-zinc-400 uppercase">Compressed</p>
+                    <p className="text-sm font-semibold text-amber-600 dark:text-amber-400 mt-1">{stats.compressed}</p>
                   </div>
                   <div className="bg-emerald-50/50 dark:bg-emerald-950/20 rounded-lg p-1.5 border border-emerald-100/50 dark:border-emerald-950/30">
-                    <p className="text-[10px] font-mono font-semibold text-emerald-500 uppercase">Saved ({stats.percent}%)</p>
+                    <p className="text-xs font-mono font-semibold text-emerald-500 uppercase">Saved ({stats.percent}%)</p>
                     <p className="text-sm font-semibold text-emerald-600 dark:text-emerald-400 mt-1 flex items-center justify-center gap-0.5">
                       <ArrowDown className="w-3.5 h-3.5 shrink-0" />
                       {stats.saved}

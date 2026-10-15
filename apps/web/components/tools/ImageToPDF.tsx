@@ -438,7 +438,7 @@ export default function ImageToPDF() {
         onClick={() => fileInputRef.current?.click()}
         className={`border-2 border-dashed rounded-xl p-8 text-center transition-all cursor-pointer relative ${
           isDragOver
-            ? "border-indigo-500 bg-indigo-50/20 dark:bg-indigo-950/20"
+            ? "border-amber-500 bg-amber-50/20 dark:bg-amber-950/20"
             : "border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 hover:border-zinc-300 dark:hover:border-zinc-700"
         }`}
       >
@@ -476,7 +476,7 @@ export default function ImageToPDF() {
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="flex items-center gap-1 text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium cursor-pointer"
+                  className="flex items-center gap-1 text-xs text-amber-600 dark:text-amber-400 hover:underline font-medium cursor-pointer"
                 >
                   <Plus className="w-3.5 h-3.5" />
                   Add More
@@ -514,7 +514,7 @@ export default function ImageToPDF() {
                         className="w-full h-full object-cover transition-transform duration-200"
                       />
                       {item.rotation !== 0 && (
-                        <div className="absolute top-0.5 right-0.5 px-1 rounded bg-black/70 text-[9px] font-mono text-white">
+                        <div className="absolute top-0.5 right-0.5 px-1 rounded bg-black/70 text-xs font-mono text-white">
                           {item.rotation}°
                         </div>
                       )}
@@ -610,7 +610,7 @@ export default function ImageToPDF() {
                   <option value="a4">A4 (210 × 297 mm)</option>
                   <option value="letter">US Letter (8.5 × 11 in)</option>
                 </select>
-                <p className="text-[10px] text-zinc-400">
+                <p className="text-xs text-zinc-400">
                   {pageSize === "fit"
                     ? "Each page matches image dimensions exactly."
                     : "Standard document sheet dimensions."}
@@ -638,7 +638,7 @@ export default function ImageToPDF() {
                   <option value="portrait">Portrait</option>
                   <option value="landscape">Landscape</option>
                 </select>
-                <p className="text-[10px] text-zinc-400">
+                <p className="text-xs text-zinc-400">
                   {pageSize === "fit" ? "Defined by image aspect" : "Page sheet alignment"}
                 </p>
               </div>
@@ -664,7 +664,7 @@ export default function ImageToPDF() {
                   <option value="small">Small (7 mm)</option>
                   <option value="normal">Normal (14 mm)</option>
                 </select>
-                <p className="text-[10px] text-zinc-400">
+                <p className="text-xs text-zinc-400">
                   {pageSize === "fit" ? "Border-free edge fit" : "Border padding on pages"}
                 </p>
               </div>
@@ -689,7 +689,7 @@ export default function ImageToPDF() {
                   <option value="contain">Contain (Keep Proportions)</option>
                   <option value="fill">Fill (Stretch to Margin)</option>
                 </select>
-                <p className="text-[10px] text-zinc-400">
+                <p className="text-xs text-zinc-400">
                   {pageSize === "fit" ? "Original pixel aspect ratio" : "Scaling within printable bounds"}
                 </p>
               </div>
@@ -719,14 +719,14 @@ export default function ImageToPDF() {
         <div className="border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 rounded-xl p-4 shadow-sm space-y-2">
           <div className="flex items-center justify-between text-xs font-mono text-zinc-600 dark:text-zinc-300">
             <span className="flex items-center gap-2">
-              <RefreshCw className="w-3.5 h-3.5 animate-spin text-indigo-500" />
+              <RefreshCw className="w-3.5 h-3.5 animate-spin text-amber-500" />
               {progressText}
             </span>
             <span>{progressPercent}%</span>
           </div>
           <div className="w-full h-1.5 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
             <div
-              className="h-full bg-indigo-500 transition-all duration-200 rounded-full"
+              className="h-full bg-amber-500 transition-all duration-200 rounded-full"
               style={{ width: `${progressPercent}%` }}
             />
           </div>

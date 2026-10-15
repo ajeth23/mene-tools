@@ -158,7 +158,7 @@ export default function ImageConverter() {
               ) : (
                 <div className="flex flex-col items-center justify-center text-zinc-300 dark:text-zinc-700 h-full">
                   <ImageIcon className="w-8 h-8 animate-pulse" />
-                  <span className="text-[10px] font-mono mt-2 uppercase tracking-wide">
+                  <span className="text-xs font-mono mt-2 uppercase tracking-wide">
                     Loading preview...
                   </span>
                 </div>
@@ -200,7 +200,7 @@ export default function ImageConverter() {
                   {sourceFormat}
                 </div>
                 <ArrowRight className="w-5 h-5 text-zinc-400 shrink-0" />
-                <div className="px-3 py-1.5 bg-indigo-500 text-white rounded text-xs font-mono font-bold uppercase shrink-0">
+                <div className="px-3 py-1.5 bg-amber-500 text-white rounded text-xs font-mono font-bold uppercase shrink-0">
                   {targetFormat}
                 </div>
               </div>

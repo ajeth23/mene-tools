@@ -49,13 +49,13 @@ interface Config {
   return (
     <div className="space-y-6 font-sans">
       <div className="flex justify-between items-center border-b border-zinc-100 dark:border-zinc-800 pb-3">
-        <span className="text-[10px] font-mono font-bold text-zinc-400 uppercase">
+        <span className="text-xs font-mono font-bold text-zinc-400 uppercase">
           LIVE MD COMPILER
         </span>
         <div className="flex gap-2">
           <button
             onClick={loadSample}
-            className="text-xs text-indigo-500 hover:underline px-2.5 py-0.5 focus:outline-none cursor-pointer"
+            className="text-xs text-amber-500 hover:underline px-2.5 py-0.5 focus:outline-none cursor-pointer"
           >
             Load Sample Template
           </button>
@@ -75,7 +75,7 @@ interface Config {
         <div className="flex flex-col border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm">
           <div className="px-4 py-2 border-b border-zinc-100 dark:border-zinc-800 bg-zinc-55/40 dark:bg-zinc-950/20 flex items-center gap-2">
             <Edit3 className="w-3.5 h-3.5 text-zinc-400" />
-            <span className="text-[10px] font-mono font-semibold text-zinc-500">RAW MARKDOWN WRITER</span>
+            <span className="text-xs font-mono font-semibold text-zinc-500">RAW MARKDOWN WRITER</span>
           </div>
           <textarea
             value={markdown}
@@ -89,7 +89,7 @@ interface Config {
         <div className="flex flex-col border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 rounded-xl overflow-hidden shadow-sm">
           <div className="px-4 py-2 border-b border-zinc-100 dark:border-zinc-800 bg-zinc-55/40 dark:bg-zinc-950/20 flex items-center gap-2">
             <Eye className="w-3.5 h-3.5 text-zinc-400" />
-            <span className="text-[10px] font-mono font-semibold text-zinc-500">HTML5 RENDER SHEET</span>
+            <span className="text-xs font-mono font-semibold text-zinc-500">HTML5 RENDER SHEET</span>
           </div>
           <div className="flex-1 overflow-y-auto p-5 md:p-6 bg-zinc-50/20 dark:bg-zinc-950/10">
             <div className="markdown-body prose dark:prose-invert prose-zinc max-w-none text-zinc-800 dark:text-zinc-200 text-sm">

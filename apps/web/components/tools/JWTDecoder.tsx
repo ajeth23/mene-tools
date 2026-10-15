@@ -110,7 +110,7 @@ export default function JWTDecoder() {
           <button
             type="button"
             onClick={loadSampleToken}
-            className="text-xs text-indigo-500 hover:underline cursor-pointer"
+            className="text-xs text-amber-500 hover:underline cursor-pointer"
           >
             Load Sample JWT
           </button>
@@ -122,7 +122,7 @@ export default function JWTDecoder() {
             decodeJWT(e.target.value);
           }}
           placeholder="Paste JWT string here..."
-          className="w-full h-32 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-3 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+          className="w-full h-32 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-3 resize-none transition-all text-zinc-900 dark:text-zinc-50"
         />
       </div>
 
@@ -141,7 +141,7 @@ export default function JWTDecoder() {
               <span className="text-xs font-mono font-semibold text-zinc-500">HEADER (ALGORITHM & TOKEN TYPE)</span>
               <button
                 onClick={() => handleCopy("header")}
-                className="text-xs text-indigo-500 hover:underline cursor-pointer"
+                className="text-xs text-amber-500 hover:underline cursor-pointer"
               >
                 {copiedSection === "header" ? "Copied" : "Copy"}
               </button>
@@ -157,12 +157,12 @@ export default function JWTDecoder() {
               <span className="text-xs font-mono font-semibold text-zinc-500">PAYLOAD (DATA CLAIMS)</span>
               <button
                 onClick={() => handleCopy("payload")}
-                className="text-xs text-indigo-500 hover:underline cursor-pointer"
+                className="text-xs text-amber-500 hover:underline cursor-pointer"
               >
                 {copiedSection === "payload" ? "Copied" : "Copy"}
               </button>
             </div>
-            <pre className="p-4 font-mono text-xs text-indigo-600 dark:text-indigo-400 bg-zinc-50/30 dark:bg-zinc-950/10 overflow-auto max-h-60 whitespace-pre">
+            <pre className="p-4 font-mono text-xs text-amber-600 dark:text-amber-400 bg-zinc-50/30 dark:bg-zinc-950/10 overflow-auto max-h-60 whitespace-pre">
               {JSON.stringify(decoded.payload, null, 2)}
             </pre>
           </div>
@@ -170,7 +170,7 @@ export default function JWTDecoder() {
           {/* Decoded Timestamps metadata if present */}
           {decoded.payload.exp && (
             <div className="lg:col-span-2 flex items-center gap-2.5 px-4 py-3 border border-zinc-200 dark:border-zinc-800 bg-zinc-50/40 dark:bg-zinc-900/30 rounded-lg text-xs text-zinc-500 dark:text-zinc-400">
-              <Info className="w-4 h-4 text-indigo-500 shrink-0" />
+              <Info className="w-4 h-4 text-amber-500 shrink-0" />
               <div className="flex flex-wrap gap-4 font-mono">
                 <span>
                   Issued At (iat):{" "}

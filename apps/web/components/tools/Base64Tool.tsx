@@ -57,7 +57,7 @@ export default function Base64Tool() {
               Plain Text UTF-8
             </label>
             {inputText && (
-              <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400">
+              <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
                 <span>{inputBytes} bytes</span>
                 <span>•</span>
                 <button
@@ -74,7 +74,7 @@ export default function Base64Tool() {
             value={inputText}
             onChange={(e) => handleEncode(e.target.value)}
             placeholder="Type or paste plain text here to encode..."
-            className="w-full h-80 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+            className="w-full h-80 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
           />
         </div>
 
@@ -85,7 +85,7 @@ export default function Base64Tool() {
               Base64 Encoded RFC 4648
             </label>
             {outputText && (
-              <div className="flex items-center gap-2 text-[10px] font-mono text-zinc-400">
+              <div className="flex items-center gap-2 text-xs font-mono text-zinc-400">
                 <span>{outputBytes} bytes</span>
                 <span>•</span>
                 <button
@@ -102,14 +102,14 @@ export default function Base64Tool() {
             value={outputText}
             onChange={(e) => handleDecode(e.target.value)}
             placeholder="Paste Base64 encoded string here to decode..."
-            className="w-full h-80 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+            className="w-full h-80 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
           />
         </div>
       </div>
 
       <div className="flex justify-between items-center bg-zinc-50 dark:bg-zinc-950 border border-zinc-100 dark:border-zinc-900 p-4 rounded-xl text-xs text-zinc-500 dark:text-zinc-400 font-mono">
         <div className="flex items-center gap-2">
-          <Binary className="w-4 h-4 text-indigo-500 shrink-0" />
+          <Binary className="w-4 h-4 text-amber-500 shrink-0" />
           <span>Bi-directional live translations. Changes compile on keypress.</span>
         </div>
         <button

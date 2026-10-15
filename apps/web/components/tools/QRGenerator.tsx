@@ -78,7 +78,7 @@ export default function QRGenerator() {
               value={text}
               onChange={(e) => setText(e.target.value)}
               placeholder="e.g. https://github.com/or-some-link"
-              className="w-full px-3 py-2.5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-950 text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500 text-zinc-900 dark:text-zinc-50"
+              className="w-full px-3 py-2.5 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-zinc-50 dark:bg-zinc-950 text-sm focus:outline-none focus:ring-1 focus:ring-amber-500 text-zinc-900 dark:text-zinc-50"
             />
           </div>
 
@@ -138,7 +138,7 @@ export default function QRGenerator() {
                     setFgColor(preset.fg);
                     setBgColor(preset.bg);
                   }}
-                  className="p-2 border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg text-left text-[10px] flex items-center gap-2 transition-all cursor-pointer"
+                  className="p-2 border border-zinc-200 dark:border-zinc-850 bg-white dark:bg-zinc-950 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-lg text-left text-xs flex items-center gap-2 transition-all cursor-pointer"
                 >
                   <div className="flex shrink-0">
                     <div className="w-3.5 h-3.5 rounded-l-md" style={{ backgroundColor: preset.fg }} />
@@ -157,7 +157,7 @@ export default function QRGenerator() {
             <canvas ref={canvasRef} className="max-w-full h-auto rounded-lg" style={{ width: "240px", height: "240px" }} />
           </div>
 
-          <p className="text-[10px] font-mono text-zinc-400 mt-4">
+          <p className="text-xs font-mono text-zinc-400 mt-4">
             Size: {size} x {size} px • PNG Asset Matrix
           </p>
 

@@ -4,19 +4,19 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-inter",
   display: "swap",
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-display",
+  variable: "--font-space",
   display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -122,7 +122,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50 font-sans antialiased selection:bg-amber-500/30 selection:text-amber-900 dark:selection:bg-amber-500/30 dark:selection:text-amber-100 transition-colors duration-200">
 
-        {children}
+        <a className="skip-link" href="#main-content">Skip to content</a>
+        <div className="workspace-shell">{children}</div>
       </body>
     </html>
   );

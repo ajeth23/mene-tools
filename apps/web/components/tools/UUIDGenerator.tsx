@@ -72,7 +72,7 @@ export default function UUIDGenerator() {
             max="100"
             value={quantity}
             onChange={(e) => setQuantity(parseInt(e.target.value, 10))}
-            className="w-full accent-indigo-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+            className="w-full accent-amber-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
           />
         </div>
 
@@ -82,7 +82,7 @@ export default function UUIDGenerator() {
               type="checkbox"
               checked={uppercase}
               onChange={(e) => setUppercase(e.target.checked)}
-              className="rounded border-zinc-300 dark:border-zinc-700 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+              className="rounded border-zinc-300 dark:border-zinc-700 text-amber-600 focus:ring-amber-500 w-4 h-4"
             />
             Uppercase Case
           </label>
@@ -92,7 +92,7 @@ export default function UUIDGenerator() {
               type="checkbox"
               checked={noHyphens}
               onChange={(e) => setNoHyphens(e.target.checked)}
-              className="rounded border-zinc-300 dark:border-zinc-700 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+              className="rounded border-zinc-300 dark:border-zinc-700 text-amber-600 focus:ring-amber-500 w-4 h-4"
             />
             Remove Hyphens
           </label>
@@ -123,7 +123,7 @@ export default function UUIDGenerator() {
           {uuids.map((uuid, i) => (
             <div key={i} className="py-2.5 flex items-center justify-between gap-4 group">
               <span className="text-zinc-850 dark:text-zinc-250 font-semibold">{uuid}</span>
-              <span className="text-[10px] text-zinc-400 font-bold opacity-0 group-hover:opacity-100 transition-opacity">
+              <span className="text-xs text-zinc-400 font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                 #{i + 1}
               </span>
             </div>

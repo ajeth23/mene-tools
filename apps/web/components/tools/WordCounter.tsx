@@ -66,7 +66,7 @@ export default function WordCounter() {
             value={text}
             onChange={(e) => setText(e.target.value)}
             placeholder="Type, paste, or inspect articles here..."
-            className="w-full h-80 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+            className="w-full h-80 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
           />
         </div>
 
@@ -81,19 +81,19 @@ export default function WordCounter() {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-[10px] font-mono text-zinc-400 uppercase">Words</p>
+                <p className="text-xs font-mono text-zinc-400 uppercase">Words</p>
                 <p className="text-xl font-bold text-zinc-800 dark:text-zinc-200 mt-0.5">{stats.wordCount}</p>
               </div>
               <div>
-                <p className="text-[10px] font-mono text-zinc-400 uppercase">Characters</p>
+                <p className="text-xs font-mono text-zinc-400 uppercase">Characters</p>
                 <p className="text-xl font-bold text-zinc-800 dark:text-zinc-200 mt-0.5">{stats.charCount}</p>
               </div>
               <div>
-                <p className="text-[10px] font-mono text-zinc-400 uppercase">No Spaces</p>
+                <p className="text-xs font-mono text-zinc-400 uppercase">No Spaces</p>
                 <p className="text-xl font-bold text-zinc-800 dark:text-zinc-200 mt-0.5">{stats.charNoSpaces}</p>
               </div>
               <div>
-                <p className="text-[10px] font-mono text-zinc-400 uppercase">Paragraphs</p>
+                <p className="text-xs font-mono text-zinc-400 uppercase">Paragraphs</p>
                 <p className="text-xl font-bold text-zinc-800 dark:text-zinc-200 mt-0.5">{stats.paragraphs}</p>
               </div>
             </div>
@@ -130,12 +130,12 @@ export default function WordCounter() {
                     <span className="font-mono bg-zinc-50 dark:bg-zinc-950 px-2 py-0.5 border border-zinc-200 dark:border-zinc-800 rounded font-bold text-zinc-650 dark:text-zinc-350">
                       {word}
                     </span>
-                    <span className="font-mono text-[10px] text-zinc-400 font-bold">{count} occurrences</span>
+                    <span className="font-mono text-xs text-zinc-400 font-bold">{count} occurrences</span>
                   </div>
                 ))}
               </div>
             ) : (
-              <p className="text-[10px] text-zinc-400 font-mono text-center py-2">
+              <p className="text-xs text-zinc-400 font-mono text-center py-2">
                 Begin typing to assess token frequency list metrics.
               </p>
             )}

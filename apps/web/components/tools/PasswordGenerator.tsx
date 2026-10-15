@@ -106,7 +106,7 @@ export default function PasswordGenerator() {
           <div className="space-y-3">
             <div className="flex justify-between text-xs font-mono">
               <span className="text-zinc-500 font-semibold uppercase">Character Count length:</span>
-              <span className="text-indigo-600 dark:text-indigo-400 font-bold">{length}</span>
+              <span className="text-amber-600 dark:text-amber-400 font-bold">{length}</span>
             </div>
             <input
               type="range"
@@ -117,7 +117,7 @@ export default function PasswordGenerator() {
                 setLength(parseInt(e.target.value, 10));
                 setTimeout(() => generate(), 0);
               }}
-              className="w-full accent-indigo-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+              className="w-full accent-amber-600 h-1.5 bg-zinc-200 dark:bg-zinc-800 rounded-lg appearance-none cursor-pointer"
             />
           </div>
 
@@ -130,7 +130,7 @@ export default function PasswordGenerator() {
                   setUseUppercase(e.target.checked);
                   setTimeout(() => generate(), 0);
                 }}
-                className="rounded border-zinc-300 dark:border-zinc-700 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+                className="rounded border-zinc-300 dark:border-zinc-700 text-amber-600 focus:ring-amber-500 w-4 h-4"
               />
               Uppercase (A-Z)
             </label>
@@ -143,7 +143,7 @@ export default function PasswordGenerator() {
                   setUseLowercase(e.target.checked);
                   setTimeout(() => generate(), 0);
                 }}
-                className="rounded border-zinc-300 dark:border-zinc-700 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+                className="rounded border-zinc-300 dark:border-zinc-700 text-amber-600 focus:ring-amber-500 w-4 h-4"
               />
               Lowercase (a-z)
             </label>
@@ -156,7 +156,7 @@ export default function PasswordGenerator() {
                   setUseNumbers(e.target.checked);
                   setTimeout(() => generate(), 0);
                 }}
-                className="rounded border-zinc-300 dark:border-zinc-700 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+                className="rounded border-zinc-300 dark:border-zinc-700 text-amber-600 focus:ring-amber-500 w-4 h-4"
               />
               Numbers (0-9)
             </label>
@@ -169,7 +169,7 @@ export default function PasswordGenerator() {
                   setUseSymbols(e.target.checked);
                   setTimeout(() => generate(), 0);
                 }}
-                className="rounded border-zinc-300 dark:border-zinc-700 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+                className="rounded border-zinc-300 dark:border-zinc-700 text-amber-600 focus:ring-amber-500 w-4 h-4"
               />
               Symbols (!@#$)
             </label>
@@ -185,7 +185,7 @@ export default function PasswordGenerator() {
                 setExcludeSimilar(e.target.checked);
                 setTimeout(() => generate(), 0);
               }}
-              className="rounded border-zinc-300 dark:border-zinc-700 text-indigo-600 focus:ring-indigo-500 w-4 h-4"
+              className="rounded border-zinc-300 dark:border-zinc-700 text-amber-600 focus:ring-amber-500 w-4 h-4"
             />
             Exclude easily confused/similar characters (e.g. <span className="font-mono bg-zinc-100 dark:bg-zinc-950 px-1 py-0.5 rounded text-zinc-500">i, l, 1, o, 0, O</span>)
           </label>

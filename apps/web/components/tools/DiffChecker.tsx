@@ -110,12 +110,12 @@ const config = {
   return (
     <div className="space-y-6 font-sans">
       <div className="flex justify-between items-center border-b border-zinc-150 dark:border-zinc-800 pb-3">
-        <span className="text-[10px] font-mono font-bold text-zinc-400 uppercase">
+        <span className="text-xs font-mono font-bold text-zinc-400 uppercase">
           LINE-BY-LINE DELTAS
         </span>
         <button
           onClick={loadSample}
-          className="text-xs text-indigo-500 hover:underline px-2.5 py-0.5 focus:outline-none cursor-pointer"
+          className="text-xs text-amber-500 hover:underline px-2.5 py-0.5 focus:outline-none cursor-pointer"
         >
           Load Code Sample
         </button>
@@ -133,7 +133,7 @@ const config = {
               setDiffResult([]);
             }}
             placeholder="Paste your baseline text..."
-            className="w-full h-44 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+            className="w-full h-44 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
           />
         </div>
 
@@ -148,7 +148,7 @@ const config = {
               setDiffResult([]);
             }}
             placeholder="Paste your changed/modified text..."
-            className="w-full h-44 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+            className="w-full h-44 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
           />
         </div>
       </div>
@@ -184,7 +184,7 @@ const config = {
 
               return (
                 <div key={idx} className={`py-2 px-4 flex items-start gap-4 ${bg}`}>
-                  <div className="flex gap-2 text-[10px] text-zinc-400 font-mono w-10 shrink-0 select-none">
+                  <div className="flex gap-2 text-xs text-zinc-400 font-mono w-10 shrink-0 select-none">
                     <span className="text-right w-4">{line.originalLineNum || ""}</span>
                     <span className="text-right w-4">{line.modifiedLineNum || ""}</span>
                   </div>

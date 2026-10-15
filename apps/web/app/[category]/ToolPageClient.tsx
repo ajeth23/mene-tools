@@ -3,27 +3,26 @@
 import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { motion } from "motion/react";
 import dynamic from "next/dynamic";
 import {
   Star,
   ArrowLeft,
   ChevronRight,
-  TrendingUp,
   ShieldCheck,
   CheckCircle,
   HelpCircle,
   Link as LinkIcon
 } from "lucide-react";
-import { TOOLS_LIST, ToolMetadata } from "@/lib/tools-config";
+import { TOOLS_LIST, getToolPath } from "@/lib/tools-config";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import ToolIcon from "@/components/ToolIcon";
 
 // Custom elegant fallback loader for tools as they load in-browser
 const LoadingTool = () => (
   <div className="w-full min-h-[400px] flex flex-col items-center justify-center py-12 bg-white dark:bg-zinc-950 rounded-2xl border border-slate-100 dark:border-zinc-900/60 shadow-sm">
     <div className="w-8 h-8 rounded-full border-2 border-slate-100 dark:border-zinc-800 border-t-indigo-500 animate-spin" />
-    <span className="text-xs text-slate-400 dark:text-zinc-500 mt-3 font-mono font-medium">Initializing tool sandbox...</span>
+    <span className="text-xs text-slate-400 dark:text-zinc-500 mt-3 font-mono font-medium">Getting your tool ready…</span>
   </div>
 );
 
@@ -65,15 +64,6 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
     notFound();
   }
 
-  const ratingCount = useMemo(() => {
-    if (!tool) return 150;
-    if (tool.usageCount.includes("K")) {
-      return Math.floor(parseFloat(tool.usageCount.replace("K", "")) * 10);
-    } else {
-      return Math.floor(parseFloat(tool.usageCount) * 0.1) || 150;
-    }
-  }, [tool]);
-
   const [isFavorite, setIsFavorite] = useState(() => {
     if (typeof window !== "undefined") {
       try {
@@ -101,6 +91,7 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
     // Remove if already in list and push to top
     recents = [slug, ...recents.filter((r) => r !== slug)].slice(0, 5);
     localStorage.setItem("mene_recents", JSON.stringify(recents));
+    window.dispatchEvent(new Event("storage"));
   }, [slug]);
 
   const toggleFavorite = () => {
@@ -194,13 +185,13 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
   const relatedTools = TOOLS_LIST.filter((t) => tool.relatedSlugs.includes(t.slug));
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#09090B] text-zinc-900 dark:text-zinc-50 selection:bg-zinc-900/10 dark:selection:bg-white/10 flex flex-col justify-between">
+    <div className="tool-page min-h-screen flex flex-col justify-between">
       <div>
         {/* Sticky Header */}
         <Header />
 
         {/* Workspace navigation area */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="tool-page-content" id="main-content" tabIndex={-1}>
           {/* Breadcrumb Navigation */}
           <div className="flex items-center gap-1.5 text-xs text-zinc-400 font-mono mb-6">
             <Link href="/" className="hover:text-zinc-900 dark:hover:text-zinc-100 flex items-center gap-1">
@@ -213,67 +204,15 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
             <span className="text-zinc-600 dark:text-zinc-300 font-bold">{tool.name}</span>
           </div>
 
-          {/* Hero details layout */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-6 border-b border-zinc-200/60 dark:border-zinc-900">
-            <div className="space-y-2 max-w-3xl">
-              <div className="flex flex-wrap items-center gap-2">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-zinc-150 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-[10px] font-mono tracking-wider text-zinc-400 uppercase">
-                  <TrendingUp className="w-3 h-3 text-indigo-500 animate-pulse" />
-                  <span>{tool.usageCount} calculations completed</span>
-                </div>
-                <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full border border-amber-250/30 dark:border-amber-900/30 bg-amber-50/30 dark:bg-amber-950/10 text-[10px] font-mono tracking-wider text-amber-600 dark:text-amber-400 uppercase font-bold">
-                  <span className="text-amber-500 text-xs">★</span>
-                  <span>4.9 / 5 ({ratingCount} votes)</span>
-                </div>
-              </div>
-              <h1 className="text-2xl sm:text-3xl font-display font-black tracking-tight text-zinc-900 dark:text-zinc-50">
-                {tool.name}
-              </h1>
-              <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
-                {tool.description}
-              </p>
-              {/* Trust badges */}
-              <div className="flex flex-wrap gap-2 pt-2">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border border-indigo-100/50 dark:border-indigo-900/30">
-                  FREE
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-100/50 dark:border-emerald-900/30">
-                  NO UPLOAD REQUIRED
-                </span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-slate-50 dark:bg-zinc-900 text-slate-500 dark:text-zinc-400 border border-slate-200/40 dark:border-zinc-800/60">
-                  NO ACCOUNT REQUIRED
-                </span>
-              </div>
-            </div>
-
-            {/* Quick Favorites and Copy Actions */}
-            <div className="flex items-center gap-2 shrink-0">
-              <button
-                onClick={toggleFavorite}
-                className={`p-2.5 rounded-xl border transition-all cursor-pointer focus:outline-none flex items-center gap-2 text-xs font-mono font-bold ${
-                  isFavorite
-                    ? "bg-amber-50/50 dark:bg-amber-950/15 border-amber-300 dark:border-amber-900 text-amber-600 dark:text-amber-500"
-                    : "bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900 text-zinc-600 dark:text-zinc-400"
-                }`}
-                title="Add to Favorite Shortcuts"
-              >
-                <Star className={`w-4 h-4 ${isFavorite ? "fill-current" : ""}`} />
-                <span className="hidden sm:inline">{isFavorite ? "FAVORITED" : "FAVORITE"}</span>
-              </button>
-
-              <button
-                onClick={handleCopyLink}
-                className="p-2.5 rounded-xl border bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900 text-zinc-600 dark:text-zinc-400 transition-all cursor-pointer focus:outline-none flex items-center gap-2 text-xs font-mono font-bold"
-                title="Copy tool link"
-              >
-                {copiedLink ? <CheckCircle className="w-4 h-4 text-emerald-500" /> : <LinkIcon className="w-4 h-4" />}
-                <span className="hidden sm:inline">{copiedLink ? "COPIED" : "SHARE"}</span>
-              </button>
-            </div>
+          <div className="tool-page-heading">
+            <div className={`tool-icon category-${tool.category.toLowerCase()}`}><ToolIcon name={tool.iconName} size={28} /></div>
+            <div className="tool-page-title"><span className="eyebrow">{tool.category} / Your workspace</span><h1>{tool.name}</h1><p>{tool.description}</p></div>
+            <div className="tool-page-actions"><button className={`secondary-button ${isFavorite ? "is-favorite" : ""}`} onClick={toggleFavorite} aria-pressed={isFavorite}><Star size={16} className={isFavorite ? "fill-current" : ""} />{isFavorite ? "Saved" : "Save tool"}</button><button className="icon-button" onClick={handleCopyLink} aria-label={copiedLink ? "Link copied" : "Copy tool link"}>{copiedLink ? <CheckCircle size={18} /> : <LinkIcon size={18} />}</button></div>
           </div>
+          <div className="workspace-trust"><ShieldCheck size={15} /><span>Files stay on your device</span><span className="trust-divider" />Free to use<span className="trust-divider" />No account needed</div>
 
           {/* Interactive Feature Canvas Frame */}
-          <div className="mt-8 bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-900 shadow-sm rounded-3xl p-6 sm:p-8 min-h-[400px]">
+          <div className="tool-canvas">
             {renderToolComponent()}
           </div>
 
@@ -284,13 +223,13 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
               <div className="space-y-3">
                 <div className="flex items-center gap-2 text-xs font-mono font-bold text-zinc-400 uppercase">
                   <ShieldCheck className="w-4 h-4 text-indigo-500" />
-                  <span>Interactive Guide</span>
+                  <span>Quick start</span>
                 </div>
                 <h2 className="text-xl font-display font-black tracking-tight text-zinc-900 dark:text-zinc-50">
                   How it works
                 </h2>
                 <p className="text-xs text-zinc-500 dark:text-zinc-400 leading-relaxed font-medium">
-                  Mene operations run directly on your browser thread. This isolates variables, provides extreme speeds, and preserves confidentiality.
+                  A few simple steps, and you’re done. Your files are processed right here in your browser.
                 </p>
               </div>
 
@@ -312,7 +251,7 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
             <div className="lg:col-span-8 space-y-6">
               <div className="flex items-center gap-2 text-xs font-mono font-bold text-zinc-400 uppercase">
                 <HelpCircle className="w-4 h-4 text-emerald-500" />
-                <span>Knowledgebase FAQs</span>
+                <span>Frequently asked questions</span>
               </div>
 
               <div className="space-y-3">
@@ -324,12 +263,13 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
                       className="border border-zinc-200/80 dark:border-zinc-900 rounded-2xl bg-white dark:bg-zinc-950/20 overflow-hidden"
                     >
                       <button
+                        aria-expanded={isOpen}
                         onClick={() => setOpenFaq(isOpen ? null : index)}
                         className="w-full text-left px-5 py-4 flex items-center justify-between text-xs sm:text-sm font-sans font-extrabold text-zinc-800 dark:text-zinc-200 hover:text-indigo-500 focus:outline-none transition-colors cursor-pointer"
                       >
                         <span>{faq.question}</span>
                         <span className="text-zinc-400 font-mono text-xs pl-2 shrink-0 select-none">
-                          {isOpen ? "[ CLOSE ]" : "[ OPEN ]"}
+                          {isOpen ? "−" : "+"}
                         </span>
                       </button>
                       {isOpen && (
@@ -348,13 +288,13 @@ export default function ToolPageClient({ slug }: ToolPageClientProps) {
           {relatedTools.length > 0 && (
             <div className="mt-16 border-t border-zinc-150 dark:border-zinc-900 pt-12 space-y-6">
               <h3 className="text-xs font-mono font-bold text-zinc-400 uppercase tracking-wider">
-                COMPATIBLE COMPANION UTILITIES
+                Keep your workflow going
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 {relatedTools.map((rel) => (
                   <Link
                     key={rel.id}
-                    href={`/${rel.slug}`}
+                    href={getToolPath(rel.category, rel.slug)}
                     className="border border-zinc-200/80 dark:border-zinc-900 bg-white dark:bg-zinc-950 p-5 rounded-2xl hover:border-zinc-300 dark:hover:border-zinc-800 hover:shadow-sm transition-all"
                   >
                     <span className="text-[10px] font-mono text-zinc-400 font-bold uppercase block mb-1">

@@ -1,16 +1,8 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { ArrowRight, Compass } from "lucide-react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function NotFound() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-center px-4">
-      <h2 className="text-3xl font-bold mb-4">404 - Not Found</h2>
-      <p className="text-zinc-500 mb-8">Could not find requested resource</p>
-      <Link 
-        href="/"
-        className="px-4 py-2 bg-zinc-900 text-white rounded-md hover:bg-zinc-800 transition-colors"
-      >
-        Return Home
-      </Link>
-    </div>
-  );
+  return <div className="min-h-screen flex flex-col"><Header /><main id="main-content" className="empty-results flex-1"><Compass size={42} /><span className="eyebrow">404 / A little off track</span><h1 className="text-3xl font-semibold tracking-tight">Let’s find your next tool.</h1><p>This page isn’t here, but your toolkit is one click away.</p><Link href="/" className="primary-button">Explore all tools <ArrowRight size={16} /></Link></main><Footer /></div>;
 }

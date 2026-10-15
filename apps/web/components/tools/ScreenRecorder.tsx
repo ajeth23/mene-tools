@@ -147,7 +147,7 @@ export default function ScreenRecorder() {
               <div className="flex gap-2">
                 <button
                   onClick={handleDownload}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 text-xs font-mono font-bold transition-all shadow-sm focus:outline-none cursor-pointer"
+                  className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-amber-700 text-white hover:bg-amber-800 text-xs font-mono font-bold transition-all shadow-sm focus:outline-none cursor-pointer"
                 >
                   <Download className="w-4 h-4" />
                   DOWNLOAD VIDEO

@@ -38,7 +38,7 @@ export default function RegexTester() {
 
         // match highlight
         nodes.push(
-          `<span key=${i} class="bg-indigo-100 dark:bg-indigo-950/60 border-b border-indigo-500 font-bold px-0.5 text-indigo-700 dark:text-indigo-300 rounded-sm">${m[0]}</span>`
+          `<span key=${i} class="bg-amber-100 dark:bg-amber-950/60 border-b border-amber-500 font-bold px-0.5 text-amber-700 dark:text-amber-300 rounded-sm">${m[0]}</span>`
         );
 
         lastIndex = end;
@@ -86,7 +86,7 @@ export default function RegexTester() {
                     setPattern(e.target.value);
                   }}
                   placeholder="[a-z]+"
-                  className="w-full pl-6 pr-4 py-2 border border-zinc-200 dark:border-zinc-850 rounded-lg bg-white dark:bg-zinc-950 text-sm font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 text-zinc-900 dark:text-zinc-50"
+                  className="w-full pl-6 pr-4 py-2 border border-zinc-200 dark:border-zinc-850 rounded-lg bg-white dark:bg-zinc-950 text-sm font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 text-zinc-900 dark:text-zinc-50"
                 />
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function RegexTester() {
                     setFlags(e.target.value);
                   }}
                   placeholder="gim"
-                  className="w-full pl-4 pr-6 py-2 border border-zinc-200 dark:border-zinc-850 rounded-lg bg-white dark:bg-zinc-950 text-sm font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 text-zinc-900 dark:text-zinc-50"
+                  className="w-full pl-4 pr-6 py-2 border border-zinc-200 dark:border-zinc-850 rounded-lg bg-white dark:bg-zinc-950 text-sm font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 text-zinc-900 dark:text-zinc-50"
                 />
                 <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-zinc-400 font-mono text-sm">/</span>
               </div>
@@ -127,7 +127,7 @@ export default function RegexTester() {
                 value={testText}
                 onChange={(e) => setTestText(e.target.value)}
                 placeholder="Enter some matchable test text here..."
-                className="w-full h-64 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-indigo-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
+                className="w-full h-64 px-4 border border-zinc-200 dark:border-zinc-800 rounded-xl bg-zinc-50/50 dark:bg-zinc-950/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-amber-500 py-3.5 resize-none transition-all text-zinc-900 dark:text-zinc-50"
               />
             </div>
 
@@ -136,7 +136,7 @@ export default function RegexTester() {
                 <label className="text-xs font-mono font-semibold uppercase text-zinc-400">
                   Visual Match Highlights
                 </label>
-                <span className="text-[10px] font-mono font-bold text-indigo-500 px-2 py-0.5 rounded-full bg-indigo-55/40 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-950">
+                <span className="text-xs font-mono font-bold text-amber-500 px-2 py-0.5 rounded-full bg-amber-55/40 dark:bg-amber-950/30 border border-amber-100 dark:border-amber-950">
                   {count} {count === 1 ? "match" : "matches"} detected
                 </span>
               </div>
@@ -158,7 +158,7 @@ export default function RegexTester() {
           <div className="divide-y divide-zinc-100 dark:divide-zinc-850">
             {cheatSheet.map((item) => (
               <div key={item.rule} className="py-2.5 flex items-start gap-3 text-xs">
-                <span className="px-1.5 py-0.5 font-mono text-xs font-bold bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded text-indigo-600 dark:text-indigo-400 shrink-0">
+                <span className="px-1.5 py-0.5 font-mono text-xs font-bold bg-zinc-50 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 rounded text-amber-600 dark:text-amber-400 shrink-0">
                   {item.rule}
                 </span>
                 <span className="text-zinc-550 dark:text-zinc-400 mt-0.5">{item.desc}</span>
